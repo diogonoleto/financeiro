@@ -1,0 +1,5 @@
+function verifica_cpf_cnpj(a){a=(a.toString()).replace(/[^0-9]/g,'');if(a.length===11){return 'CPF';}else if(a.length===14){return 'CNPJ';}else{return false;}}
+function calc_digitos_posicoes(b,c=10,d=0){b=b.toString();for(var i=0;i<b.length;i++){d=d+(b[i]*c);c--;if(c<2){c=9;}}d=d%11;if(d<2){d=0;}else{d=11-d;}var cpf=b+d;return cpf;}
+function valida_cpf(a){a=(a.toString()).replace(/[^0-9]/g,'');var e=calc_digitos_posicoes(calc_digitos_posicoes(a.substr(0,9)),11);if(e===a){return true;}else{return false;}}
+function valida_cnpj(a){a=(a.toString()).replace(/[^0-9]/g,'');var cnpj=calc_digitos_posicoes(calc_digitos_posicoes(a.substr(0,12),5),6);if(cnpj===a){return true;}return false;}
+function valida_cpf_cnpj(a){if(!a)return true;var j=verifica_cpf_cnpj(a);a=(a.toString()).replace(/[^0-9]/g,'');if(j==='CPF'){return valida_cpf(a);}else if(j==='CNPJ'){return valida_cnpj(a);}else{return false;}}
