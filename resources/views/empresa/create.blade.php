@@ -67,7 +67,7 @@
 			</div>
 		</form>
 	</div>
-	@if($item->contatos->count())
+	@if($item->contatos)
 	<div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
 		@foreach($item->contatos as $c)
 		<div class="col-xs-12 cinfo no-padding">
@@ -86,7 +86,7 @@
 		</div>
 	</div>
 	@endif
-	@if($item->enderecos->count())
+	@if($item->enderecos)
 	<div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
 		@foreach($item->enderecos as $e)
 		<div class="col-xs-12 cinfo no-padding">
@@ -105,7 +105,7 @@
 		</div>
 	</div>
 	@endif
-	@if($item->contas->count())
+	@if($item->contas)
 	<div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
 		@foreach($item->contas as $co)
 		<div class="col-xs-12 cinfo no-padding">
@@ -124,7 +124,7 @@
 		</div>
 	</div>
 	@endif
-	@if($item->maisInfo->count())
+	@if($item->maisInfo)
 	<div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
 		@if(isset($item->maisInfo->data_fundacao))
 		<div class="col-xs-12 cinfo no-padding">

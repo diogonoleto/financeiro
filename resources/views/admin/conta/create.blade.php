@@ -110,11 +110,12 @@
       </div>
       <div class="col-md-12">
         <h4>Modulos</h4>
+        {{ $modulo }}
         <hr style="margin-top: 10px; margin-bottom: 10px;">
       </div>
       @foreach($modulos as $m)
         @php($check = '')
-        @if( count($modulo) > 0 )
+        @if($modulo)
           @foreach($modulo as $im)
             @if($m->id == $im->getOriginal('pivot_sis_modulo_id'))
               @php($check = 'checked=checked')

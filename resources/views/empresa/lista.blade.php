@@ -52,7 +52,7 @@
         <span class="info">{{ Helper::cpfcnpj($i->cnpj) }}</span>
       </p>
     </div>
-    @if($i->enderecos->count()>0)
+    @if($i->enderecos)
     <div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); margin-bottom: 10px; margin-top: 10px;">
       <h5 style="margin-top: 10px;margin-bottom: 7px;padding-bottom: 8px;border-bottom: 1px solid #eee;">ENDEREÇO</h5>
       @foreach($i->enderecos as $en)
@@ -64,8 +64,7 @@
     </div>
     @endif
 
-
-    @if($i->maisInfo->count())
+    @if($i->maisInfo)
     <div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
       <h5 style="margin-top: 10px;margin-bottom: 7px;padding-bottom: 8px;border-bottom: 1px solid #eee;">MAIS INFORMAÇÕES</h5>
       @if(isset($i->maisInfo->data_fundacao))
@@ -168,7 +167,7 @@
     @endif
   </div>
   <div class="col-xs-4">
-    @if($i->contatos->count()>0)
+    @if($i->contatos)
     <div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); margin-bottom: 10px; margin-top: 10px;">
       <h5 style="margin-top: 10px;margin-bottom: 7px;padding-bottom: 8px;border-bottom: 1px solid #eee;">CONTATOS</h5>
       @foreach($i->contatos as $e)
@@ -198,7 +197,7 @@
     </div>
     @endif
 
-    @if($i->contas->count()>0)
+    @if($i->contas)
     <div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); margin-bottom: 10px; margin-top: 10px;">
       <h5 style="margin-top: 10px;margin-bottom: 7px;padding-bottom: 8px;border-bottom: 1px solid #eee;">CONTAS</h5>
       @foreach($i->contas as $c)
