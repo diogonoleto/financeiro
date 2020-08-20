@@ -53,7 +53,7 @@ class RelatorioController extends Controller
 
 
 
-    if(count($conta) > 0){
+    if($conta){
       $tconta = explode(",", $conta);
       $t->whereIn('fin_movimentos.conta_id', $tconta);
     }
@@ -67,7 +67,7 @@ class RelatorioController extends Controller
     ->whereNull("fin_movimentos.deleted_at")
     ->whereNotNull('fin_movimentos.data_baixa');
 
-    if(count($conta) > 0){
+    if($conta){
       $tconta = explode(",", $conta);
       $i->whereIn('fin_movimentos.conta_id', $tconta);
     }
@@ -159,7 +159,7 @@ class RelatorioController extends Controller
     ->whereNull("fin_movimentos.deleted_at")
     ->where('fin_movimentos.data_vencimento', "<", $from);
 
-    if(count($conta) > 0){
+    if($conta){
       $tconta = explode(",", $conta);
       $t->whereIn('fin_movimentos.conta_id', $tconta);
     }
@@ -189,7 +189,7 @@ class RelatorioController extends Controller
     ->whereNull("fin_movimentos.deleted_at")
     ->whereBetween('fin_movimentos.data_vencimento', [$from, $to]);
 
-    if(count($conta) > 0){
+    if($conta){
       $iconta = explode(",", $conta);
       $i->whereIn('fin_movimentos.conta_id', $iconta);
     }
@@ -347,28 +347,28 @@ class RelatorioController extends Controller
                 }
                 $chisp += $cchisp;
                 $chisr += $cchisr;
-                $rmcategdiv = count($cchi->childrenfca)>0 ? "rmcategdiv" : null;
+                $rmcategdiv = $cchi->childrenfca->count()>0 ? "rmcategdiv" : null;
                 $cobc .= '<div class="rel-6 ssscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' chi-'.$cchi->categoria_id.' hidden">'.number_format($cchisp, 2, ',', '.').'</div>';
                 $cobc .= '<div class="rel-6 ssscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' chi-'.$cchi->categoria_id.' hidden">'.number_format($cchisr, 2, ',', '.').'</div>';
                 $cobc .= $ccobc;
               }
               $chsp += $chisp;
               $chsr += $chisr;
-              $rmcategdiv = count($chi->childrenfca)>0 ? "rmcategdiv" : null;
+              $rmcategdiv = $chi->childrenfca->count()>0 ? "rmcategdiv" : null;
               $obc .= '<div class="rel-6 sscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' hidden">'.number_format($chisp, 2, ',', '.').'</div>';
               $obc .= '<div class="rel-6 sscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' hidden">'.number_format($chisr, 2, ',', '.').'</div>';
               $obc .= $cobc;
             }
             $casp += $chsp;
             $casr += $chsr;
-            $rmcategdiv = count($ch->childrenfca)>0 ? "rmcategdiv" : null;
+            $rmcategdiv = $ch->childrenfca->count()>0 ? "rmcategdiv" : null;
             $obc1 .= '<div class="rel-6 scategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' hidden">'.number_format($chsp, 2, ',', '.').'</div>';
             $obc1 .= '<div class="rel-6 scategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' hidden">'.number_format($chsr, 2, ',', '.').'</div>';
             $obc1 .= $obc;
           }
           $catsp += $casp;
           $catsr += $casr;
-          $rmcategdiv = count($ca->childrenfca)>0 ? "rmcategdiv" : null;
+          $rmcategdiv = $ca->childrenfca->count()>0 ? "rmcategdiv" : null;
           $obc2 .= '<div class="rel-6 '.$rmcategdiv.'">'.number_format($casp, 2, ',', '.').'</div>';
           $obc2 .= '<div class="rel-6 '.$rmcategdiv.'">'.number_format($casr, 2, ',', '.').'</div>';
           $obc2 .= $obc1;
@@ -457,28 +457,28 @@ class RelatorioController extends Controller
                 }
                 $chisp += $cchisp;
                 $chisr += $cchisr;
-                $rmcategdiv = count($cchi->childrenfca)>0 ? "rmcategdiv" : null;
+                $rmcategdiv = $cchi->childrenfca->count()>0 ? "rmcategdiv" : null;
                 $cobc .= '<div class="rel-6 ssscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' chi-'.$cchi->categoria_id.' hidden">'.number_format($cchisp, 2, ',', '.').'</div>';
                 $cobc .= '<div class="rel-6 ssscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' chi-'.$cchi->categoria_id.' hidden">'.number_format($cchisr, 2, ',', '.').'</div>';
                 $cobc .= $ccobc;
               }
               $chsp += $chisp;
               $chsr += $chisr;
-              $rmcategdiv = count($chi->childrenfca)>0 ? "rmcategdiv" : null;
+              $rmcategdiv = $chi->childrenfca->count()>0 ? "rmcategdiv" : null;
               $obc .= '<div class="rel-6 sscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' hidden">'.number_format($chisp, 2, ',', '.').'</div>';
               $obc .= '<div class="rel-6 sscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' hidden">'.number_format($chisr, 2, ',', '.').'</div>';
               $obc .= $cobc;
             }
             $casp += $chsp;
             $casr += $chsr;
-            $rmcategdiv = count($ch->childrenfca)>0 ? "rmcategdiv" : null;
+            $rmcategdiv = $ch->childrenfca->count()>0 ? "rmcategdiv" : null;
             $obc1 .= '<div class="rel-6 scategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' hidden">'.number_format($chsp, 2, ',', '.').'</div>';
             $obc1 .= '<div class="rel-6 scategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' hidden">'.number_format($chsr, 2, ',', '.').'</div>';
             $obc1 .= $obc;
           }
           $catsp += $casp;
           $catsr += $casr;
-          $rmcategdiv = count($ca->childrenfca)>0 ? "rmcategdiv" : null;
+          $rmcategdiv = $ca->childrenfca->count()>0 ? "rmcategdiv" : null;
           $obc2 .= '<div class="rel-6 '.$rmcategdiv.'">'.number_format($casp, 2, ',', '.').'</div>';
           $obc2 .= '<div class="rel-6 '.$rmcategdiv.'">'.number_format($casr, 2, ',', '.').'</div>';
           $obc2 .= $obc1;
@@ -514,28 +514,28 @@ class RelatorioController extends Controller
     $ob .= '</div>';
     foreach($categs as $c){
       if($c->tipo == "Receita"){
-        if(count($c->childrenfca)>0)
+        if($c->childrenfca->count()>0)
           $ob .= '<div class="rmcateg" rel="'.$c->id.'"><i class="mdi mdi-chevron-right"></i> ';
         else
           $ob .= '<div class="nchi"><i class="mdi mdi-minus"></i> ';
         $ob .= $c->nome;
         $ob .= '</div>';
         foreach($c->childrenfca as $d){
-          if(count($d->childrenfca)>0)
+          if($d->childrenfca->count()>0)
             $ob .= '<div class="scategoria chi-'.$d->categoria_id.' hidden rmcateg" rel="'.$d->id.'"><i class="mdi mdi-chevron-right"></i> ';
           else
             $ob .= '<div class="scategoria chi-'.$d->categoria_id.' hidden"><i class="mdi mdi-minus"></i> ';
           $ob .= $d->nome;
           $ob .= '</div>';
           foreach($d->childrenfca as $e){
-            if(count($e->childrenfca)>0)
+            if($e->childrenfca->count()>0)
               $ob .= '<div class="sscategoria chi-'.$d->categoria_id.' chi-'.$e->categoria_id.' hidden rmcateg" rel="'.$e->id.'"><i class="mdi mdi-chevron-right"></i> ';
             else
               $ob .= '<div class="sscategoria chi-'.$d->categoria_id.' chi-'.$e->categoria_id.' hidden"><i class="mdi mdi-minus"></i> ';
             $ob .= $e->nome;
             $ob .= '</div>';
             foreach($e->childrenfca as $f){
-              if(count($f->childrenfca)>0)
+              if($f->childrenfca->count()>0)
                 $ob .= '<div class="ssscategoria chi-'.$d->categoria_id.' chi-'.$e->categoria_id.' chi-'.$f->categoria_id.' hidden rmcateg" rel="'.$f->id.'"><i class="mdi mdi-chevron-right"></i> ';
               else
                 $ob .= '<div class="ssscategoria chi-'.$d->categoria_id.' chi-'.$e->categoria_id.' chi-'.$f->categoria_id.' hidden"><i class="mdi mdi-minus"></i> ';
@@ -556,28 +556,28 @@ class RelatorioController extends Controller
     $ob .= '</div>';
     foreach($categs as $c){
       if($c->tipo == "Despesa"){
-        if(count($c->childrenfca)>0)
+        if($c->childrenfca->count()>0)
           $ob .= '<div class="rmcateg" rel="'.$c->id.'"><i class="mdi mdi-chevron-right"></i> ';
         else
           $ob .= '<div class="nchi"><i class="mdi mdi-minus"></i> ';
         $ob .= $c->nome;
         $ob .= '</div>';
         foreach($c->childrenfca as $d){
-          if(count($d->childrenfca)>0)
+          if($d->childrenfca->count()>0)
             $ob .= '<div class="scategoria chi-'.$d->categoria_id.' hidden rmcateg" rel="'.$d->id.'"><i class="mdi mdi-chevron-right"></i> ';
           else
             $ob .= '<div class="scategoria chi-'.$d->categoria_id.' hidden"><i class="mdi mdi-minus"></i> ';
           $ob .= $d->nome;
           $ob .= '</div>';
           foreach($d->childrenfca as $e){
-            if(count($e->childrenfca)>0)
+            if($e->childrenfca->count()>0)
               $ob .= '<div class="sscategoria chi-'.$d->categoria_id.' chi-'.$e->categoria_id.' hidden rmcateg" rel="'.$e->id.'"><i class="mdi mdi-chevron-right"></i> ';
             else
               $ob .= '<div class="sscategoria chi-'.$d->categoria_id.' chi-'.$e->categoria_id.' hidden"><i class="mdi mdi-minus"></i> ';
             $ob .= $e->nome;
             $ob .= '</div>';
             foreach($e->childrenfca as $f){
-              if(count($f->childrenfca)>0)
+              if($f->childrenfca->count()>0)
                 $ob .= '<div class="ssscategoria chi-'.$d->categoria_id.' chi-'.$e->categoria_id.' chi-'.$f->categoria_id.' hidden rmcateg" rel="'.$f->id.'"><i class="mdi mdi-chevron-right"></i> ';
               else
                 $ob .= '<div class="ssscategoria chi-'.$d->categoria_id.' chi-'.$e->categoria_id.' chi-'.$f->categoria_id.' hidden"><i class="mdi mdi-minus"></i> ';
@@ -725,28 +725,28 @@ class RelatorioController extends Controller
                 }
                 $chisp += $cchisp;
                 $chisr += $cchisr;
-                $rmcategdiv = count($cchi->childrenfca)>0 ? "rmcategdiv" : null;
+                $rmcategdiv = $cchi->childrenfca->count()>0 ? "rmcategdiv" : null;
                 $cobc .= '<div class="rel-6 ssscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' chi-'.$cchi->categoria_id.' hidden">'.number_format($cchisp, 2, ',', '.').'</div>';
                 $cobc .= '<div class="rel-6 ssscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' chi-'.$cchi->categoria_id.' hidden">'.number_format($cchisr, 2, ',', '.').'</div>';
                 $cobc .= $ccobc;
               }
               $chsp += $chisp;
               $chsr += $chisr;
-              $rmcategdiv = count($chi->childrenfca)>0 ? "rmcategdiv" : null;
+              $rmcategdiv = $chi->childrenfca->count()>0 ? "rmcategdiv" : null;
               $obc .= '<div class="rel-6 sscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' hidden">'.number_format($chisp, 2, ',', '.').'</div>';
               $obc .= '<div class="rel-6 sscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' hidden">'.number_format($chisr, 2, ',', '.').'</div>';
               $obc .= $cobc;
             }
             $casp += $chsp;
             $casr += $chsr;
-            $rmcategdiv = count($ch->childrenfca)>0 ? "rmcategdiv" : null;
+            $rmcategdiv = $ch->childrenfca->count()>0 ? "rmcategdiv" : null;
             $obc1 .= '<div class="rel-6 scategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' hidden">'.number_format($chsp, 2, ',', '.').'</div>';
             $obc1 .= '<div class="rel-6 scategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' hidden">'.number_format($chsr, 2, ',', '.').'</div>';
             $obc1 .= $obc;
           }
           $catsp += $casp;
           $catsr += $casr;
-          $rmcategdiv = count($ca->childrenfca)>0 ? "rmcategdiv" : null;
+          $rmcategdiv = $ca->childrenfca->count()>0 ? "rmcategdiv" : null;
           $obc2 .= '<div class="rel-6 '.$rmcategdiv.'">'.number_format($casp, 2, ',', '.').'</div>';
           $obc2 .= '<div class="rel-6 '.$rmcategdiv.'">'.number_format($casr, 2, ',', '.').'</div>';
           $obc2 .= $obc1;
@@ -835,28 +835,28 @@ class RelatorioController extends Controller
                 }
                 $chisp += $cchisp;
                 $chisr += $cchisr;
-                $rmcategdiv = count($cchi->childrenfca)>0 ? "rmcategdiv" : null;
+                $rmcategdiv = $cchi->childrenfca->count()>0 ? "rmcategdiv" : null;
                 $cobc .= '<div class="rel-6 ssscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' chi-'.$cchi->categoria_id.' hidden">'.number_format($cchisp, 2, ',', '.').'</div>';
                 $cobc .= '<div class="rel-6 ssscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' chi-'.$cchi->categoria_id.' hidden">'.number_format($cchisr, 2, ',', '.').'</div>';
                 $cobc .= $ccobc;
               }
               $chsp += $chisp;
               $chsr += $chisr;
-              $rmcategdiv = count($chi->childrenfca)>0 ? "rmcategdiv" : null;
+              $rmcategdiv = $chi->childrenfca->count()>0 ? "rmcategdiv" : null;
               $obc .= '<div class="rel-6 sscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' hidden">'.number_format($chisp, 2, ',', '.').'</div>';
               $obc .= '<div class="rel-6 sscategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' chi-'.$chi->categoria_id.' hidden">'.number_format($chisr, 2, ',', '.').'</div>';
               $obc .= $cobc;
             }
             $casp += $chsp;
             $casr += $chsr;
-            $rmcategdiv = count($ch->childrenfca)>0 ? "rmcategdiv" : null;
+            $rmcategdiv = $ch->childrenfca->count()>0 ? "rmcategdiv" : null;
             $obc1 .= '<div class="rel-6 scategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' hidden">'.number_format($chsp, 2, ',', '.').'</div>';
             $obc1 .= '<div class="rel-6 scategoria '.$rmcategdiv.' chi-'.$ch->categoria_id.' hidden">'.number_format($chsr, 2, ',', '.').'</div>';
             $obc1 .= $obc;
           }
           $catsp += $casp;
           $catsr += $casr;
-          $rmcategdiv = count($ca->childrenfca)>0 ? "rmcategdiv" : null;
+          $rmcategdiv = $ca->childrenfca->count()>0 ? "rmcategdiv" : null;
           $obc2 .= '<div class="rel-6 '.$rmcategdiv.'">'.number_format($casp, 2, ',', '.').'</div>';
           $obc2 .= '<div class="rel-6 '.$rmcategdiv.'">'.number_format($casr, 2, ',', '.').'</div>';
           $obc2 .= $obc1;
@@ -915,7 +915,7 @@ class RelatorioController extends Controller
     ->whereNull("fin_movimentos.deleted_at")
     ->whereBetween('fin_movimentos.data_emissao', [$from, $to]);
 
-    if(count($conta) > 0){
+    if($conta){
       $iconta = explode(",", $conta);
       $i->whereIn('fin_movimentos.conta_id', $iconta);
     }
@@ -1044,7 +1044,7 @@ class RelatorioController extends Controller
       foreach($dres as $ca){
         if($ca->descricao == "Receitas Operacionais"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->mes == $i+1){
@@ -1081,7 +1081,7 @@ class RelatorioController extends Controller
           $ob .= '<div class="tot">'.number_format($RBV, 2, ',', '.').'</div>';
         } else if($ca->descricao == "Deduções da Receita Brutal"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->mes == $i+1){
@@ -1118,7 +1118,7 @@ class RelatorioController extends Controller
           $ob .= '<div class="tot">'.number_format($RBV + $RLV, 2, ',', '.').'</div>';
         } else if($ca->descricao == "Custos Operacionais"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->mes == $i+1){
@@ -1155,7 +1155,7 @@ class RelatorioController extends Controller
           $ob .= '<div class="tot">'.number_format($RBV + $RLV + $LB, 2, ',', '.').'</div>';
         } else if($ca->descricao == "Despesas Operacionais"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->mes == $i+1){
@@ -1192,7 +1192,7 @@ class RelatorioController extends Controller
           $ob .= '<div class="tot">'.number_format($RBV + $RLV + $LB + $DO, 2, ',', '.').'</div>';
         } else if($ca->descricao == "Receitas e Despesas Financeiras"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->mes == $i+1){
@@ -1228,7 +1228,7 @@ class RelatorioController extends Controller
           $ob .= '<div class="tot">'.number_format($RBV + $RLV + $LB + $DO + $ORDNO, 2, ',', '.').'</div>';
         } else if($ca->descricao == "Outras Receitas e Despesas Não Operacionais"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->mes == $i+1){
@@ -1263,7 +1263,7 @@ class RelatorioController extends Controller
           }
         } else if($ca->descricao == "Despesas com Investimentos e Empréstimos"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->mes == $i+1){
@@ -1314,7 +1314,7 @@ class RelatorioController extends Controller
     foreach($dres as $ca){
       if($ca->descricao == "Outras Receitas e Despesas Não Operacionais"){
         $CRBV=0;
-        if(count($ca->childrendre)==0){
+        if($ca->childrendre->count()==0){
           foreach($itens as $it){
             if ($ca->descricao == $it->descricao ) {
               $CRBV += $it->valor;
@@ -1346,7 +1346,7 @@ class RelatorioController extends Controller
       } else if ($ca->descricao == "Receitas Operacionais"){
 
         $CRBV=0;
-        if(count($ca->childrendre)==0){
+        if($ca->childrendre->count()==0){
           foreach($itens as $it){
             if ($ca->descricao == $it->descricao ) {
               $CRBV += $it->valor;
@@ -1377,7 +1377,7 @@ class RelatorioController extends Controller
       } else {
 
         $CRBV=0;
-        if(count($ca->childrendre)==0){
+        if($ca->childrendre->count()==0){
           foreach($itens as $it){
             if ($ca->descricao == $it->descricao ) {
               $CRBV += $it->valor;
@@ -1449,7 +1449,7 @@ class RelatorioController extends Controller
     ->whereNull("fin_movimentos.deleted_at")
     ->whereBetween('fin_movimentos.data_emissao', [$from, $to]);
 
-    if(count($conta) > 0){
+    if($conta){
       $iconta = explode(",", $conta);
       $i->whereIn('fin_movimentos.conta_id', $iconta);
     }
@@ -1577,7 +1577,7 @@ class RelatorioController extends Controller
       foreach($dres as $ca){
         if($ca->descricao == "Receitas Operacionais"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->ano == $d){
@@ -1615,7 +1615,7 @@ class RelatorioController extends Controller
           $ob .= '<div class="tot">'.number_format($RBV, 2, ',', '.').'</div>';
         } else if($ca->descricao == "Deduções da Receita Brutal"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->ano == $d){
@@ -1652,7 +1652,7 @@ class RelatorioController extends Controller
           $ob .= '<div class="tot">'.number_format($RBV + $RLV, 2, ',', '.').'</div>';
         } else if($ca->descricao == "Custos Operacionais"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->ano == $d){
@@ -1689,7 +1689,7 @@ class RelatorioController extends Controller
           $ob .= '<div class="tot">'.number_format($RBV + $RLV + $LB, 2, ',', '.').'</div>';
         } else if($ca->descricao == "Despesas Operacionais"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->ano == $d){
@@ -1726,7 +1726,7 @@ class RelatorioController extends Controller
           $ob .= '<div class="tot">'.number_format($RBV + $RLV + $LB + $DO, 2, ',', '.').'</div>';
         } else if($ca->descricao == "Receitas e Despesas Financeiras"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->ano == $d){
@@ -1762,7 +1762,7 @@ class RelatorioController extends Controller
           $ob .= '<div class="tot">'.number_format($RBV + $RLV + $LB + $DO + $ORDNO, 2, ',', '.').'</div>';
         } else if($ca->descricao == "Outras Receitas e Despesas Não Operacionais"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->ano == $d){
@@ -1797,7 +1797,7 @@ class RelatorioController extends Controller
           }
         } else if($ca->descricao == "Despesas com Investimentos e Empréstimos"){
           $CRBV=0;
-          if(count($ca->childrendre)==0){
+          if($ca->childrendre->count()==0){
             foreach($itens as $it){
               if ($ca->descricao == $it->descricao ) {
                 if($it->ano == $d){
@@ -1848,7 +1848,7 @@ class RelatorioController extends Controller
     foreach($dres as $ca){
       if($ca->descricao == "Outras Receitas e Despesas Não Operacionais"){
         $CRBV=0;
-        if(count($ca->childrendre)==0){
+        if($ca->childrendre->count()==0){
           foreach($itens as $it){
             if ($ca->descricao == $it->descricao ) {
               $CRBV += $it->valor;
@@ -1880,7 +1880,7 @@ class RelatorioController extends Controller
       } else if ($ca->descricao == "Receitas Operacionais"){
 
         $CRBV=0;
-        if(count($ca->childrendre)==0){
+        if($ca->childrendre->count()==0){
           foreach($itens as $it){
             if ($ca->descricao == $it->descricao ) {
               $CRBV += $it->valor;
@@ -1911,7 +1911,7 @@ class RelatorioController extends Controller
       } else {
 
         $CRBV=0;
-        if(count($ca->childrendre)==0){
+        if($ca->childrendre->count()==0){
           foreach($itens as $it){
             if ($ca->descricao == $it->descricao ) {
               $CRBV += $it->valor;

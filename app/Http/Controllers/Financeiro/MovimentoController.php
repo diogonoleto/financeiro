@@ -534,7 +534,7 @@ class MovimentoController extends Controller
       $i->where('fin_movimentos.centro_custo_id', $centrocusto);
     }
 
-    if(count($conta) > 0){
+    if($conta){
       $i->whereIn('fin_movimentos.conta_id', $conta);
       $s->whereIn('fin_movimentos.conta_id', $conta);
     }
@@ -852,7 +852,7 @@ class MovimentoController extends Controller
       $i->where('fin_movimentos.categoria_id', $categoria);
     }
 
-    if(count($conta) > 0){
+    if($conta){
       $i->whereIn('fin_movimentos.conta_id', $conta);
     }
 

@@ -67,7 +67,7 @@
 			</div>
 		</form>
 	</div>
-	@if(count($item->contatos))
+	@if($item->contatos->count())
 	<div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
 		@foreach($item->contatos as $c)
 		<div class="col-xs-12 cinfo no-padding">
@@ -86,7 +86,7 @@
 		</div>
 	</div>
 	@endif
-	@if(count($item->enderecos))
+	@if($item->enderecos->count())
 	<div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
 		@foreach($item->enderecos as $e)
 		<div class="col-xs-12 cinfo no-padding">
@@ -105,7 +105,7 @@
 		</div>
 	</div>
 	@endif
-	@if(count($item->contas))
+	@if($item->contas->count())
 	<div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
 		@foreach($item->contas as $co)
 		<div class="col-xs-12 cinfo no-padding">
@@ -124,7 +124,7 @@
 		</div>
 	</div>
 	@endif
-	@if(count($item->maisInfo))
+	@if($item->maisInfo->count())
 	<div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
 		@if(isset($item->maisInfo->data_fundacao))
 		<div class="col-xs-12 cinfo no-padding">
@@ -229,7 +229,7 @@
 	</div>
 	@endif
 	<div class="row" style="background-color:#fff; padding-left: 0; padding-right: 0">
-		<div class="col-xs-12 {{ count($item->maisInfo) ? 'hidden' : null }}">
+		<div class="col-xs-12 {{ $item->maisInfo->count() ? 'hidden' : null }}">
 			<div class="form-group">
 				<span>DADOS SECUNDARIOS</span>
 				<label class="switch" style="float: right; margin-top: 0px;" for="dase">
@@ -238,7 +238,7 @@
 				</label>
 			</div>
 		</div>
-		<div class="col-xs-12 {{ count($item->contatos) ? 'hidden' : null }}">
+		<div class="col-xs-12 {{ $item->contatos->count() ? 'hidden' : null }}">
 			<div class="form-group">
 				<span>CONTATOS</span>
 				<label class="switch" style="float: right; margin-top: 0px;" for="contato">
@@ -247,7 +247,7 @@
 				</label>
 			</div>
 		</div>
-		<div class="col-xs-12 {{ count($item->enderecos) ? 'hidden' : null }}">
+		<div class="col-xs-12 {{ $item->enderecos->count() ? 'hidden' : null }}">
 			<div class="form-group">
 				<span>ENDEREÇOS</span>
 				<label class="switch" style="float: right; margin-top: 0px;" for="endereco">
@@ -256,7 +256,7 @@
 				</label>
 			</div>
 		</div>
-		<div class="col-xs-12  {{ count($item->contas) ? 'hidden' : null }}">
+		<div class="col-xs-12  {{ $item->contas->count() ? 'hidden' : null }}">
 			<div class="form-group">
 				<span>DADOS BANCÁRIOS</span>
 				<label class="switch" style="float: right; margin-top: 0px;" for="daba">
