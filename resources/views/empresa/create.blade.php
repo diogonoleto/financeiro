@@ -229,7 +229,7 @@
 	</div>
 	@endif
 	<div class="row" style="background-color:#fff; padding-left: 0; padding-right: 0">
-		<div class="col-xs-12 {{ $item->maisInfo->count() ? 'hidden' : null }}">
+		<div class="col-xs-12 {{ $item->maisInfo ? 'hidden' : null }}">
 			<div class="form-group">
 				<span>DADOS SECUNDARIOS</span>
 				<label class="switch" style="float: right; margin-top: 0px;" for="dase">
@@ -238,7 +238,7 @@
 				</label>
 			</div>
 		</div>
-		<div class="col-xs-12 {{ $item->contatos->count() ? 'hidden' : null }}">
+		<div class="col-xs-12 {{ $item->contatos ? 'hidden' : null }}">
 			<div class="form-group">
 				<span>CONTATOS</span>
 				<label class="switch" style="float: right; margin-top: 0px;" for="contato">
@@ -247,7 +247,7 @@
 				</label>
 			</div>
 		</div>
-		<div class="col-xs-12 {{ $item->enderecos->count() ? 'hidden' : null }}">
+		<div class="col-xs-12 {{ $item->enderecos ? 'hidden' : null }}">
 			<div class="form-group">
 				<span>ENDEREÇOS</span>
 				<label class="switch" style="float: right; margin-top: 0px;" for="endereco">
@@ -256,7 +256,7 @@
 				</label>
 			</div>
 		</div>
-		<div class="col-xs-12  {{ $item->contas->count() ? 'hidden' : null }}">
+		<div class="col-xs-12  {{ $item->contas ? 'hidden' : null }}">
 			<div class="form-group">
 				<span>DADOS BANCÁRIOS</span>
 				<label class="switch" style="float: right; margin-top: 0px;" for="daba">
