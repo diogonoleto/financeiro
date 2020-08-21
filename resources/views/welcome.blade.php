@@ -29,7 +29,7 @@
       <div class="row">
         <div class="col-md-12">
           <a class="hero-brand" href="/" title="Home">
-            <img src="{{ asset('img/logo.png') }}"></a>
+            <img src="{{ asset('img/logo_c.png') }}"></a>
         </div>
       </div>
 
