@@ -2,7 +2,9 @@
 @section('content')
 <div class="col-md-6" id="login">
   <div class="panel panel-default">
-    <div class="panel-heading"><img src="{{ url('img/LogoDiretorioDigital-m.png') }}" class="img-responsive"></div>
+    <div class="panel-heading text-center">
+      <img src="{{ url('img/logo_c.png') }}" style="width:250px">
+    </div>
     <div class="panel-body">
       <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
         {{ csrf_field() }}

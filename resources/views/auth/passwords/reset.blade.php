@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-6" id="login">
       <div class="panel panel-default">
-        <div class="panel-heading"><img src="{{ url('img/LogoDiretorioDigital-m.png') }}" class="img-responsive"></div>
+        <div class="panel-heading"><img src="{{ url('img/logo_c.png') }}" class="img-responsive"></div>
         <div class="panel-heading">Trocar A Senha</div>
         <div class="panel-body">
           @if (session('status'))

@@ -28,24 +28,27 @@
     <div class="container text-center">
       <div class="row">
         <div class="col-md-12">
-          <a class="hero-brand" href="index.html" title="Home"><img alt="Bell Logo" src="http://diretoriodigital.com.br/wp-content/uploads/2017/04/LogoDiretorioDigital-m.png"></a>
+          <a class="hero-brand" href="/" title="Home">
+            <img src="{{ asset('img/logo.png') }}"></a>
         </div>
       </div>
 
       <div class="col-md-12">
-        <h1 style="font-weight: 400;">Solução para seus negócios.‎</h1>
-        <p class="tagline">
+        <h1 style="font-weight: 400; color: #ffffff;">Solução para seus negócios.‎</h1>
+        <p style="color: #ffffff;" class="tagline">
           Gestão financeira simples e eficiente.
         </p>
-        <a class="btn btn-success btn-lg" href="#about">Saiba Mais</a>
-        <a href="{{ url('/login') }}" class="btn btn-outline-success btn-login btn-lg">Login</a>
+        <!-- <a class="btn btn-primary btn-lg" href="#about">Saiba Mais</a> -->
+        <a href="{{ url('/login') }}" class="btn btn-outline-primary btn-login btn-lg">Login</a>
       </div>
     </div>
   </section>
   <header id="header">
     <div class="container">
       <div id="logo" class="pull-left">
-        <a href="index.html"><img src="http://diretoriodigital.com.br/wp-content/uploads/2017/04/LogoDiretorioDigital-p.png" alt="" title="" /></img></a>
+        <a href="index.html">
+          <img src="{{ asset('img/logo.png') }}" alt="" title="" />
+        </a>
       </div>
       <nav id="nav-menu-container">
         <ul class="nav-menu">
@@ -56,9 +59,9 @@
       </nav>
       @if (Route::has('login'))
         @if (Auth::check())
-        <a href="{{ url('/home') }}" class="btn btn-outline-success pull-right btn-login">Home</a>
+        <!-- <a href="{{ url('/home') }}" class="btn btn-outline-primary pull-right btn-login">Home</a> -->
         @else
-        <a href="{{ url('/login') }}" class="btn btn-outline-success pull-right btn-login">Login</a>
+        <a href="{{ url('/login') }}" class="btn btn-outline-primary pull-right btn-login">Login</a>
         @endif
       @endif
     </div>
@@ -107,7 +110,6 @@
     <p>Sistema de gestão online feito para organizar sua empresa e dar mais tempo para você</p>
     <img alt="" class="gadgets-img hidden-md-down" src="{{ asset('img/gadgets.png') }}" style="width: 500px;">
   </div>
-
   <section class="precos" id="precos">
     <div class="container">
       <div class="row justify-content-center">
@@ -137,7 +139,7 @@
                   Monitore receitas, despesas e lucro
                 </a>
                 <div class="list-group-item">
-                  <button class="btn btn-block text-truncate btn-outline-success">Inscrever-se</button>
+                  <button class="btn btn-block text-truncate btn-outline-primary">Inscrever-se</button>
                 </div>
               </div>
             </div>
@@ -164,7 +166,7 @@
                   Monitore receitas, despesas e lucro
                 </a>
                 <div class="list-group-item">
-                  <button class="btn btn-block text-truncate btn-outline-success">Compre</button>
+                  <button class="btn btn-block text-truncate btn-outline-primary">Compre</button>
                 </div>
               </div>
             </div>
@@ -191,7 +193,7 @@
                   Monitore receitas, despesas e lucro
                 </a>
                 <div class="list-group-item">
-                  <button class="btn btn-block text-truncate btn-outline-success">Compre</button>
+                  <button class="btn btn-block text-truncate btn-outline-primary">Compre</button>
                 </div>
               </div>
             </div>
@@ -215,7 +217,6 @@
       </div>
     </div>
   </section>
-
   <section id="contact">
     <div class="container">
       <div class="row">
@@ -301,7 +302,7 @@
       </div>
     </div>
   </footer>
-  <a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a> 
+  <!-- <a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a>  -->
 
   <!-- Required JavaScript Libraries -->
   <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
