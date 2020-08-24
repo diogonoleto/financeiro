@@ -121,7 +121,7 @@ class ClienteController extends Controller
 
     if($request->movimento == 1)
       return $cliente;
-    
+
     return redirect()->route('cliente.edit', ['id' => $cliente->id]);
   }
   public function edit($id)
@@ -130,7 +130,7 @@ class ClienteController extends Controller
       return redirect()->back();
     }
     $item = Empresa::where('id', $id)->with([
-      'maisInfo', 
+      'maisInfo',
       'contatos' => function($q){
         $q->orderBy('principal')->whereNull('deleted_at');;
       },
@@ -209,7 +209,7 @@ class ClienteController extends Controller
     $order = Request('order');
     $order = Request()->has('order') ? $order : 'nome_fantasia';
     $sort = Request('sort');
-    $sort = Request()->has('sort') ? $sort : 'ASC' ;
+    $sort = Request()->has('sort') ? $sort : 'asc' ;
     $search = Request('input-search');
     $search = str_replace('/', '', str_replace('-', '', str_replace('.', '', $search)));
     $i = Empresa::where('empresa_tipo_id', 3)
@@ -220,13 +220,13 @@ class ClienteController extends Controller
         ->orWhere('nome_fantasia', 'LIKE', "%$search%")
         ->orWhere('razao_social', 'LIKE', "%$search%")
         ->orWhere('cnpj', 'LIKE', "%$search%");
-      })->orderBy('nome_fantasia', 'ASC')
-      ->orderBy('razao_social', 'ASC');
+      })->orderBy('nome_fantasia', 'asc')
+      ->orderBy('razao_social', 'asc');
     } else {
       $i->orderBy($order, $sort);
     }
     $itens = $i->with([
-      'maisInfo', 
+      'maisInfo',
       'contatos' => function($q){
         $q->orderBy('principal')->whereNull('deleted_at');;
       },

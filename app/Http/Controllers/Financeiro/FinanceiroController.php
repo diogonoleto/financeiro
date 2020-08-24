@@ -22,7 +22,7 @@ class FinanceiroController extends Controller
     $agora = date('Y-m-d', strtotime($agora));
     $from = date('Y-m-01', strtotime($agora));
     $to = date('Y-m-t', strtotime($from));
-    
+
     $contas = FinMovimento::select(DB::raw('fin_contas.img, fin_contas.descricao, fin_contas.padrao, SUM(IF(fin_categorias.tipo = "Receita", 1*fin_movimentos.valor_recebido , -1*fin_movimentos.valor_recebido )) as valor'))
                         ->join('fin_contas', 'fin_contas.id', '=', 'fin_movimentos.conta_id')
                         ->join('fin_categorias', 'fin_categorias.id', '=', 'fin_movimentos.categoria_id')
@@ -31,7 +31,7 @@ class FinanceiroController extends Controller
                         ->whereNull("fin_movimentos.deleted_at")
                         ->whereNull("fin_contas.deleted_at")
                         ->groupBy('fin_contas.descricao', 'fin_contas.img', 'fin_contas.padrao')
-                        ->orderBy('fin_contas.padrao', 'DESC')
+                        ->orderBy('fin_contas.padrao', 'desc')
                         ->get();
 
     $matu = FinMovimento::select(DB::raw('
@@ -52,7 +52,7 @@ class FinanceiroController extends Controller
                           ->first();
 
     $from = date('Y-m-d', strtotime('-1 months', strtotime($from)));
-    $to = date('Y-m-d', strtotime('-1 months', strtotime($to))); 
+    $to = date('Y-m-d', strtotime('-1 months', strtotime($to)));
 
     $mant = FinMovimento::select(DB::raw('
                           IFNULL(SUM(IF(fin_categorias.tipo = "Receita", fin_movimentos.valor , 0 )),0) as ARPrevisto,
@@ -143,7 +143,7 @@ class FinanceiroController extends Controller
       $semRRealizado=0;
       $semDPrevisto=0;
       $semDRealizado=0;
-      
+
       foreach($itens as $j){
         if($j->mes == $i+$s){
           if($j->tipo == "Receita"){
@@ -205,7 +205,7 @@ class FinanceiroController extends Controller
                               ->whereNull("fin_movimentos.data_baixa")
                               ->where('fin_categorias.sis_conta_id', auth()->user()->sis_conta_id)
                               ->where('fin_movimentos.data_vencimento','<', $date)
-                              ->orderBy('fin_movimentos.data_vencimento', 'ASC')
+                              ->orderBy('fin_movimentos.data_vencimento', 'asc')
                               ->get();
 
     return response(view('financeiro.agenda', compact('agmovimentos', 'atmovimentos', 'date', 'agora')));

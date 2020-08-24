@@ -45,7 +45,7 @@ class UsuarioController  extends Controller
     $account = SisConta::find(Auth()->user()->sis_conta_id);
     $user = User::where('user_tipo_id', 1)->get();
     $qtde_usuario = $account->qtde_funcionario - count($user);
-    
+
     if($qtde_usuario <= 0){
       $error = ["error" => ["nome" => "O nome já existe."]];
       return $error;
@@ -184,7 +184,7 @@ class UsuarioController  extends Controller
     $order = Request('order');
     $order = Request()->has('order') ? $order : 'nome';
     $sort = Request('sort');
-    $sort = Request()->has('sort') ? $sort : 'ASC' ;
+    $sort = Request()->has('sort') ? $sort : 'asc' ;
 
 
     $search = Request('input-search');
@@ -198,7 +198,7 @@ class UsuarioController  extends Controller
     if( $search || $search != '' ){
       $i->where('nome', 'LIKE', "%$search%")
         ->orWhere('cargo', 'LIKE', "%$search%")
-        ->orderBy('nome', 'ASC');
+        ->orderBy('nome', 'asc');
     } else {
       $i->orderBy($order, $sort);
     }

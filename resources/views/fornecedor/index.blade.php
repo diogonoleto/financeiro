@@ -2,7 +2,7 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1 class="hidden-xs">{{ $title }}</h1> 
+  <h1 class="hidden-xs">{{ $title }}</h1>
   <div class="input-group pull-right" id="btn-tools">
     <div class="input-group-btn">
       <a href="#" class="btn btn-default" id="btn-search" data-toggle="tooltip" title="Pesquisar Fornecedor" data-placement="bottom"><i class="mdi mdi-magnify mdi-20px"></i></a>
@@ -33,10 +33,10 @@
       </form>
     </div>
     <div class="col-sm-12 col-xs-12 no-padding" id="grid-table-header">
-      <div class="col-sm-3 col-xs-6"><a href="#" class="order" order="razao_social" sort="ASC">RAZÃO SOCIAL</a></div>
-      <div class="col-sm-2 col-xs-6"><a href="#" class="order" order="nome_fantasia" sort="ASC">NOME FANTASIA</a></div>
-      <div class="col-sm-2 col-xs-4"><a href="#" class="order" order="cnpj" sort="ASC">CNPJ/CPF</a></div>
-      <div class="col-sm-3 col-xs-4"><a href="#" class="order" order="email" sort="ASC">E-MAIL</a></div>
+      <div class="col-sm-3 col-xs-6"><a href="#" class="order" order="razao_social" sort="asc">RAZÃO SOCIAL</a></div>
+      <div class="col-sm-2 col-xs-6"><a href="#" class="order" order="nome_fantasia" sort="asc">NOME FANTASIA</a></div>
+      <div class="col-sm-2 col-xs-4"><a href="#" class="order" order="cnpj" sort="asc">CNPJ/CPF</a></div>
+      <div class="col-sm-3 col-xs-4"><a href="#" class="order" order="email" sort="asc">E-MAIL</a></div>
       <div class="col-sm-2 col-xs-4">TELEFONE</div>
     </div>
     <div id="grid-table-body">

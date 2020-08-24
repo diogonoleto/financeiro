@@ -435,8 +435,8 @@ a:hover > svg > path#first-path{
     height: 100%;
   }
 
-  @page { 
-    margin: 1cm; 
+  @page {
+    margin: 1cm;
     size: auto;
   }
 
@@ -513,7 +513,7 @@ a:hover > svg > path#first-path{
 }
 
 .table-condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th {
- padding: 0px; 
+ padding: 0px;
 }
 
 .bootstrap-datetimepicker-widget table td span.active {
@@ -536,7 +536,7 @@ a:hover > svg > path#first-path{
 
 
 .btn-block+.btn-block {
-  margin-top: 0px; 
+  margin-top: 0px;
 }
 
 
@@ -573,7 +573,7 @@ a:hover > svg > path#first-path{
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1 id="title" class="hidden-xs">{{ $title }}</h1> 
+  <h1 id="title" class="hidden-xs">{{ $title }}</h1>
   <div class="input-group pull-right hidden-print" id="btn-tools">
     <div class="input-group-btn">
       @can('fin_movimento_create')
@@ -644,13 +644,13 @@ a:hover > svg > path#first-path{
       <div class="col-sm-12 col-xs-12 no-padding" id="grid-table-header">
 
         @if($item->conta_tipo_id == 4)
-        <div class="hb-data" style="max-width: 70px; min-width: 70px; text-align: center;"><a href="#" class="order-mov active" order="data_baixa" sort="ASC" >DATA</a></div>
-        <div class="hidden-xs col-md-auto"><a href="#" class="order-mov" order="categoria_nome" sort="ASC" >CATEGORIA</a> / <a href="#" class="order-mov" order="descricao" sort="ASC" >DESCRIÇÃO</a></div>
-        <div class="visible-xs col-md-auto"><a href="#" class="order-mov" order="categoria_nome" sort="ASC" >CAT</a> / <a href="#" class="order-mov" order="descricao" sort="ASC" >DESC</a></div>
+        <div class="hb-data" style="max-width: 70px; min-width: 70px; text-align: center;"><a href="#" class="order-mov active" order="data_baixa" sort="asc" >DATA</a></div>
+        <div class="hidden-xs col-md-auto"><a href="#" class="order-mov" order="categoria_nome" sort="asc" >CATEGORIA</a> / <a href="#" class="order-mov" order="descricao" sort="asc" >DESCRIÇÃO</a></div>
+        <div class="visible-xs col-md-auto"><a href="#" class="order-mov" order="categoria_nome" sort="asc" >CAT</a> / <a href="#" class="order-mov" order="descricao" sort="asc" >DESC</a></div>
         <div class="col-md-auto" style=""></div>
         <div class="hb-valo hidden-xs text-right" style="max-width: 125px; min-width: 125px;">VALOR (R$)</div>
         <div class="visible-xs text-right">VALOR(R$)</div>
-        
+
         @else
         <div class="hb-data" style="max-width: 70px; min-width: 70px; text-align: center;">DATA</div>
         <div class="col-md-auto">DESCRIÇÃO</div>
@@ -741,7 +741,7 @@ a:hover > svg > path#first-path{
       $("#div-list").toggleClass("col-sm-8").toggleClass("col-sm-12");
       $("#div-crud").toggleClass("hidden");
     }
-    
+
     var data = $('#form-search').serializeArray();
     $.ajax({
       url: url+"?date="+date,

@@ -51,14 +51,14 @@ class ImportacaoCategoriaController extends Controller
           $usuario = auth()->user()->id;
           foreach($data as $sheet)
           {
-            $tipo = $sheet->getTitle(); 
+            $tipo = $sheet->getTitle();
             if($tipo != 'Receita' && $tipo != 'Despesa') {
               $iimpo = FinCategoria::where('importacao_id', $importacao->id)->delete();
               $imp = FinImportacao::where('id', $importacao->id)->delete();
               return redirect()->back()->withErrors([ 'error' => 'O arquivo enviado não está no padrão, por favor faça o download do modelo padrão!']);
             }
             if($request->tipo == 'ReceitaDespesa'){
-              $tipo = $sheet->getTitle(); 
+              $tipo = $sheet->getTitle();
             } else {
               if($request->tipo != $sheet->getTitle())
                 continue;
@@ -257,11 +257,11 @@ class ImportacaoCategoriaController extends Controller
     $order = Request('order');
     $order = Request()->has('order') ? $order : 'created_at';
     $sort = Request('sort');
-    $sort = Request()->has('sort') ? $sort : 'ASC' ;
+    $sort = Request()->has('sort') ? $sort : 'asc' ;
     $search = Request('input-search');
     if( $search || $search != '' ){
       $itens = FinImportacao::where('tipo_id', 2)->where('nome', 'LIKE', "%$search%")
-      ->orderBy('nome', 'ASC')
+      ->orderBy('nome', 'asc')
       ->paginate(28);
     } else {
       $itens = FinImportacao::where('tipo_id', 2)->orderBy($order, $sort)

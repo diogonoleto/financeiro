@@ -2,7 +2,7 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1 id="title" class="hidden-xs">{{ $title }}</h1> 
+  <h1 id="title" class="hidden-xs">{{ $title }}</h1>
   <div class="input-group pull-right hidden-print" id="btn-tools">
     <div class="input-group-btn">
       @can('fin_movimento_create')
@@ -312,7 +312,7 @@
               <li><a href="#" class="fpontual hidden" rel="1">Pontual <i class="mdi mdi-chevron-down"></i></a></li>
               <li><a href="#" class="fpontual hidden" rel="0">Recorrente <i class="mdi mdi-chevron-down"></i></a></li>
             </ul>
-            <input type="hidden" name="input-pontual" id="input-pontual">
+            <input type="hidden" name="input_pontual" id="input_pontual">
           </div>
           <div class="mf-remove">
             <div>
@@ -455,15 +455,15 @@
         </li>
       </ul>
     </div>
-    <div id="div-list" class="col-xs-12 col-sm-12 no-padding"> 
+    <div id="div-list" class="col-xs-12 col-sm-12 no-padding">
       <div class="col-sm-12 col-xs-12 no-padding" id="grid-table-header">
-        <div class="cl-tipo hb-tipo" style=""><a href="#" class="order-mov" order="tipo" sort="ASC" >TIPO</a></div>
-        <div class="cl-datc hb-datc hidden" style="max-width: 70px; min-width: 70px; text-align: center;"><a href="#" class="order-mov active" title="Data Vencimento" order="data_emissao" sort="ASC" >D.CAD</a></div>
-        <div class="cl-data hb-data" style="max-width: 70px; min-width: 70px; text-align: center;"><a href="#" class="order-mov active" title="Data Vencimento" order="data_emissao" sort="ASC" >D.EMI</a></div>
-        <div class="cl-datp hb-datp" style="max-width: 70px; min-width: 70px; text-align: center;"><a href="#" class="order-mov" order="data_baixa" sort="ASC" >D.PAG</a></div>
-        <div class="cl-desc hidden-xs col-md-auto"><a href="#" class="order-mov" order="categoria_nome" sort="ASC" >CATEGORIA</a> / <a href="#" class="order-mov" order="descricao" sort="ASC" >DESCRIÇÃO</a></div>
-        <div class="cl-desc visible-xs col-md-auto"><a href="#" class="order-mov" order="categoria_nome" sort="ASC" >CAT</a> / <a href="#" class="order-mov" order="descricao" sort="ASC" >DESC</a></div>
-        <div class="cl-focl hb-focl col-md-auto hidden hidden-xs"><a href="#" class="order-mov" order="nome_fantasia" sort="ASC">REC. DE / PAGO A</a></div>
+        <div class="cl-tipo hb-tipo" style=""><a href="#" class="order-mov" order="tipo" sort="asc" >TIPO</a></div>
+        <div class="cl-datc hb-datc hidden" style="max-width: 70px; min-width: 70px; text-align: center;"><a href="#" class="order-mov active" title="Data Vencimento" order="data_emissao" sort="asc" >D.CAD</a></div>
+        <div class="cl-data hb-data" style="max-width: 70px; min-width: 70px; text-align: center;"><a href="#" class="order-mov active" title="Data Vencimento" order="data_emissao" sort="asc" >D.EMI</a></div>
+        <div class="cl-datp hb-datp" style="max-width: 70px; min-width: 70px; text-align: center;"><a href="#" class="order-mov" order="data_baixa" sort="asc" >D.PAG</a></div>
+        <div class="cl-desc hidden-xs col-md-auto"><a href="#" class="order-mov" order="categoria_nome" sort="asc" >CATEGORIA</a> / <a href="#" class="order-mov" order="descricao" sort="asc" >DESCRIÇÃO</a></div>
+        <div class="cl-desc visible-xs col-md-auto"><a href="#" class="order-mov" order="categoria_nome" sort="asc" >CAT</a> / <a href="#" class="order-mov" order="descricao" sort="asc" >DESC</a></div>
+        <div class="cl-focl hb-focl col-md-auto hidden hidden-xs"><a href="#" class="order-mov" order="nome_fantasia" sort="asc">REC. DE / PAGO A</a></div>
         <div class="cl-bagc hb-bagc col-md-auto hidden hidden-xs">BANCO/AGENCIA/CONTA</div>
         <div class="cl-cimg hb-cimg hidden-xs" style="max-width: 38px; min-width: 38px;">&nbsp;</div>
         <div class="cl-valo hb-valo text-right hidden-xs" style="max-width: 125px; min-width: 125px;">VALOR (R$)</div>

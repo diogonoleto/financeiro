@@ -82,7 +82,7 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-	<h1>{{ $title }}</h1> 
+	<h1>{{ $title }}</h1>
 	<div class="input-group pull-right" id="btn-tools">
 		 <div class="input-group-btn">
       <a href="{{ route('adminCon.conta.index') }}" class="btn btn-default" data-toggle="tooltip" title="Contas" data-placement="bottom"><i class="mdi mdi-folder-account mdi-20px"></i></a>
@@ -107,10 +107,10 @@
 		</div>
 		<!-- <div class="col-xs-12 no-padding" id="grid-table-header">
 			<div style="width: 40px; padding: 0px 5px; float: left;"><input type="checkbox"><i class="mdi mdi-checkbox-blank-outline mdi-24px checkbox" id="checkbox-all"></i></div>
-			<div class="col-sm-3 col-xs-4" style="width: calc(25% - 40px);"><a href="#" class="order" order="nome" sort="ASC" >NOME</a></div>
-			<div class="col-sm-2 col-xs-4"><a href="#" class="order" order="responsavel" sort="ASC" >RESPONSÁVEL</a></div>
-			<div class="col-sm-2 hidden-xs"><a href="#" class="order" order="plataforma" sort="ASC">PLATAFORMA</a></div>
-			<div class="col-sm-2 hidden-xs"><a href="#" class="order" order="uuid" sort="ASC">ID DISP.</a></div>
+			<div class="col-sm-3 col-xs-4" style="width: calc(25% - 40px);"><a href="#" class="order" order="nome" sort="asc" >NOME</a></div>
+			<div class="col-sm-2 col-xs-4"><a href="#" class="order" order="responsavel" sort="asc" >RESPONSÁVEL</a></div>
+			<div class="col-sm-2 hidden-xs"><a href="#" class="order" order="plataforma" sort="asc">PLATAFORMA</a></div>
+			<div class="col-sm-2 hidden-xs"><a href="#" class="order" order="uuid" sort="asc">ID DISP.</a></div>
 			<div class="col-sm-1 hidden-xs">MESA</div>
 			<div class="col-sm-1 hidden-xs">DESC.(R$)</div>
 			<div class="col-sm-1 hidden-xs">DESC.(%)</div>
@@ -166,11 +166,11 @@
   	if( $(this).hasClass('btn-pdv-create')){
   		$("#pdv-list").toggleClass("col-sm-8").toggleClass("col-xs-8");
   		$("#pdv-create").toggleClass("hidden");
-  		$("#form-pdv-create").attr("action", $(this).attr("route")); 
+  		$("#form-pdv-create").attr("action", $(this).attr("route"));
   	} else {
   		$("#pdv-list").addClass("col-sm-8").addClass("col-xs-8");
   		$("#pdv-create").removeClass("hidden");
-  		$("#form-pdv-create").attr("action", $(this).attr("route")); 
+  		$("#form-pdv-create").attr("action", $(this).attr("route"));
   	}
   	$("#form-pdv-create").submit();
   });
@@ -217,7 +217,7 @@
   		data: data,
   		success: function(data){
   			$("#pdv-create").html(data);
-  			
+
   			$(".se-pre-con").fadeOut();
   			$("#pdv-novo").draggable();
   			$('#desc_valor_max').mask("#.##0,00", {reverse: true});

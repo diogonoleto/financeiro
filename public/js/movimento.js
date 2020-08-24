@@ -5,9 +5,9 @@ $(document).ready(function() {
     resizediv();
   });
 });
-$(function(){       
+$(function(){
   var $box = $("#form-pesquisa");
-  $(window).on("click.Bst", function(e){    
+  $(window).on("click.Bst", function(e){
     if( $box.has(e.target).length == 0 && !$box.is(e.target) ){
       $(".search-options").addClass("hidden");
     }
@@ -48,7 +48,7 @@ $(document).on("submit", "#form-pesquisa", function(e) {
         }
       });
       $('#grid-table-body').scrollbar({ "scrollx": "none", disableBodyScroll: true });
-      if($(".search-options").length > 0){ 
+      if($(".search-options").length > 0){
         $(".search-options").addClass("hidden");
       }
       if( $("#data").val() == "fdho"){
@@ -105,7 +105,7 @@ $(document).on("submit", "#form-pesquisa", function(e) {
         $("#btn-agenda-movimento-edit").trigger("click");
         agenda = null;
       }
-      
+
       resizediv();
       resizeind();
     },
@@ -283,7 +283,7 @@ $(document).on('click', '.fpontual', function(e){
   $('#fpontual').removeClass("open");
   $('.fpontual').addClass("hidden").removeClass("active");
   $(this).addClass('active').removeClass("hidden");
-  $('#input-pontual').val($(this).attr("rel"));
+  $('#input_pontual').val($(this).attr("rel"));
   $("#form-pesquisa").submit();
 });
 $(document).on('click', '.fdata', function(e){
@@ -433,15 +433,15 @@ $(document).click(function(){
   $('.fconta input').not(":checked").parent().addClass("hidden");
   $('.fconta input:checked').parent().addClass("active");
 
-  if($('ul.ul-ffornecedor li:visible').length > 1){ 
+  if($('ul.ul-ffornecedor li:visible').length > 1){
     $('ul.ul-ffornecedor li:first-child a').trigger("click");
   }
 
-  if($('ul.ul-fcategoria li:visible').length > 1){ 
+  if($('ul.ul-fcategoria li:visible').length > 1){
     $('ul.ul-fcategoria li:first-child a').trigger("click");
   }
 
-  if($('ul.ul-fcentrocusto li:visible').length > 1){ 
+  if($('ul.ul-fcentrocusto li:visible').length > 1){
     $('ul.ul-fcentrocusto li:first-child a').trigger("click");
   }
 
@@ -498,7 +498,7 @@ $(document).on('click', '.search-item', function(e){
     $("li[rel='#mf-cliente']").addClass("disabled");
     $("#input-fornecedor").attr("filtro", "fornecedor").focus();
     $("#labforn").html("Fornecedores:");
-    
+
     $("#ffornecedor").scrollbar({ "scrollx": "none", disableBodyScroll: true }).parent().css({ "max-height": "250px", "position": "absolute!important", "margin-top": "-1px", "border-top": 0 })
     $("#div-fornecedor").addClass("open");
 
@@ -773,7 +773,7 @@ $(document).on('click', '#export', function(e){
     cache: false,
     success: function (response, textStatus, request) {
       var a = document.createElement("a");
-      a.href = response.file; 
+      a.href = response.file;
       a.download = response.name;
       document.body.appendChild(a);
       a.click();
@@ -851,11 +851,11 @@ $(document).on('click', '.mes', function(e){
 });
 $(document).on('click', '.tipo', function(e){
   $("#tipo").val($(this).attr("id"));
-  $("#form-pesquisa").submit(); 
+  $("#form-pesquisa").submit();
 });
 $(document).on('click', '.order-mov', function(e){
 
-  var sort = $(this).attr("sort") == "ASC" ? "DESC" : "ASC";
+  var sort = $(this).attr("sort") == "asc" ? "desc" : "asc";
   $(this).attr("sort", sort);
   $("#sort").val(sort);
 
@@ -864,7 +864,7 @@ $(document).on('click', '.order-mov', function(e){
   var order = $(this).attr("order");
   $("#order").val(order);
 
-  $("#form-pesquisa").submit(); 
+  $("#form-pesquisa").submit();
 
 });
 // $(document).on('click', '.order-mov2', function(e){
@@ -940,7 +940,7 @@ $(document).on('click', '.order-mov', function(e){
 
 //   if($(this).hasClass('order-mov')){
 //     sort = $(this).attr("sort");
-//     sort = sort == "ASC" ? "DESC" : "ASC";
+//     sort = sort == "asc" ? "desc" : "asc";
 //     $(this).attr("sort", sort);
 //     $(".order-mov").removeClass("active");
 //     $(this).addClass("active");
@@ -1075,7 +1075,7 @@ $(document).on('click', '.order-mov', function(e){
 $(document).on('click', '.btn-drop-movimento-create, .btn-movimento-create, .btn-movimento-edit, .btn-transferencia-create,.btn-conta-edit, #btn-agenda-movimento-edit', function(e){
   e.preventDefault();
   $('#movimento-filtro').removeClass("active").removeClass("movimento-filtro-ativo");
-  
+
   $("#div-crud").html("");
   $(".has-error").removeClass("has-error").children(".help-block").last().html('');
   $("#movimento-filtro").addClass("hidden");
@@ -1384,7 +1384,7 @@ $(document).on("submit", "#form-conta-create", function(e) {
       h -= $("#grid-table-header").length ? $("#grid-table-header").outerHeight(true) : 0;
       h -= $("#movimento-footer").length ? $("#movimento-footer").outerHeight(true) : 0;
       h -= $(".pagination-bottom").length ? $(".pagination-bottom").outerHeight(true) : 0;
-      
+
       $('.form-crud, .ul-banco').scrollbar({ "scrollx": "none", disableBodyScroll: true }).parent().css({ "max-height": h, "width": "100%"});
 
       $(".tab-pane.fade.in.active .banco_input").focus().select();

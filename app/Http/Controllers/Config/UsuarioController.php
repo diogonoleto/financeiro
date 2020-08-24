@@ -147,7 +147,7 @@ class UsuarioController  extends Controller
       return redirect()->back();
     }
     $item = User::where('id', $id)->with([
-      'maisInfo', 
+      'maisInfo',
       'regra',
       'contatos' => function($q){
         $q->orderBy('principal')->whereNull('deleted_at');;
@@ -223,7 +223,7 @@ class UsuarioController  extends Controller
     $order = Request('order');
     $order = Request()->has('order') ? $order : 'nome';
     $sort = Request('sort');
-    $sort = Request()->has('sort') ? $sort : 'ASC' ;
+    $sort = Request()->has('sort') ? $sort : 'asc' ;
     $search = Request('input-search');
     $i = User::where('user_tipo_id', 1)
     ->whereNull('deleted_at');
@@ -231,7 +231,7 @@ class UsuarioController  extends Controller
       $i->where(function($q) use ($search) {
         $q->where('nome', 'LIKE', "%$search%")
         ->orWhere('cargo', 'LIKE', "%$search%");
-      })->orderBy('nome', 'ASC');
+      })->orderBy('nome', 'asc');
     } else {
       $i->orderBy($order, $sort);
     }

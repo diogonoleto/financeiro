@@ -2,18 +2,18 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
   <meta charset="utf-8">
-  <title>Diretório Digital</title>
+  <title>DNS ODontológica</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <!-- Favicon -->
   <link href="img/favicon.ico" rel="icon">
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,500,700|Roboto:100,200,400,900" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
   <link href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  
+
   <!-- Libraries CSS Files -->
   <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 

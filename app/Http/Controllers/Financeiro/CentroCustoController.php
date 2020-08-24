@@ -81,14 +81,14 @@ class CentroCustoController extends Controller
     $order = Request()->has('order') ? $order : 'nome';
 
     $sort = Request('sort');
-    $sort = Request()->has('sort') ? $sort : 'ASC' ;
+    $sort = Request()->has('sort') ? $sort : 'asc' ;
 
     $search = Request('input-search');
 
     if( $search || $search != '' ){
       $itens = FinCentroCusto::where('nome', 'LIKE', "%$search%")
                       ->whereNull('deleted_at')
-                      ->orderBy('nome', 'ASC')
+                      ->orderBy('nome', 'asc')
                       ->paginate(28);
     } else {
       $itens = FinCentroCusto::whereNull('deleted_at')

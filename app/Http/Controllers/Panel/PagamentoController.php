@@ -23,7 +23,7 @@ class PagamentoController extends Controller
 
     if( Gate::denies('pagamento_create') )
       return redirect()->back();
-   
+
 
     return view('pagamento.create', compact());
   }
@@ -49,7 +49,7 @@ class PagamentoController extends Controller
     if( Gate::denies('pagamento_update') )
       return redirect()->back();
     $item = Pagamento::find($id);
-   
+
 
     if( Gate::denies('pagamento', $item) )
       return redirect()->back();
@@ -70,8 +70,8 @@ class PagamentoController extends Controller
   public function lista(){
     if( Gate::denies('pagamento_read') )
       return redirect()->back();
-    
-    $itens = Pagamento::orderBy('pagamento_tipo_id', 'ASC')->paginate('28');
+
+    $itens = Pagamento::orderBy('pagamento_tipo_id', 'asc')->paginate('28');
 
     return response(view('pagamento.lista', compact('itens')));
   }

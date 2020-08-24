@@ -4,7 +4,7 @@ $(document).ready(function() {
   });
   $(".se-pre-con").fadeIn();
 
-  if($("#form-search").length > 0){ 
+  if($("#form-search").length > 0){
     $("#form-search").submit();
   }
   $('[data-toggle="popover"]').popover();
@@ -26,7 +26,7 @@ $(document).on('click', '#btn-apresentacao-next, #btn-apresentacao-prev, #btn-ap
         type: "GET",
         success: function(data){
           console.log(data);
-        }, 
+        },
         error: function(data){
           console.log(data);
         }
@@ -166,7 +166,7 @@ $(document).on("submit", "#form-search", function(e) {
       });
       $('#grid-table-body').scrollbar({ "scrollx": "none", disableBodyScroll: true });
 
-      if($(".search-options").length > 0){ 
+      if($(".search-options").length > 0){
         $(".search-options").addClass("hidden");
       }
       resizeind();
@@ -200,7 +200,7 @@ $(document).on('click', '.order', function(e){
   var url = $("#form-search").attr("action");
   var get = "GET";
   var sort = $(this).attr("sort");
-  sort = sort == "ASC" ? "DESC" : "ASC";
+  sort = sort == "asc" ? "desc" : "asc";
   $(this).attr("sort", sort);
   var order = $(this).attr("order");
   $.ajax({
@@ -238,7 +238,7 @@ function buscarNoticias(valor) {
     tipo=null;
   var url = $("#form-search").attr("action");
   url = url+"?input-search="+valor+"&tipo="+tipo;
-  req.open("Get", url, true); 
+  req.open("Get", url, true);
   req.onreadystatechange = function() {
     if(req.readyState == 1) {
       document.getElementById('grid-table-body').innerHTML = '<div class="col-xs-12 grid-table text-center" style="margin-bottom:5px;"><div class="col-xs-12">Buscando Informações</div></div>';

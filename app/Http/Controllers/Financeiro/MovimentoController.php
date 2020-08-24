@@ -88,7 +88,7 @@ class MovimentoController extends Controller
     ->whereNull("fin_movimentos.deleted_at")
     ->whereNull("fin_contas.deleted_at")
     ->groupBy('fin_contas.id', 'fin_contas.descricao', 'fin_contas.padrao')
-    ->orderBy('fin_contas.padrao', 'DESC')
+    ->orderBy('fin_contas.padrao', 'desc')
     ->get();
     $categorias = FinCategoria::where('categoria_id', NULL)
     ->whereNull('deleted_at')
@@ -96,16 +96,16 @@ class MovimentoController extends Controller
     ->where('nome', '!=', 'Transferência de Saída')
     ->where('nome', '!=', 'Transferência de Entrada')
     ->where('nome', '!=', 'Saldo Inicial')
-    ->orderBy('cod', 'ASC')
+    ->orderBy('cod', 'asc')
     ->with('children')
     ->get();
     $tipo = $request->tipo;
     $fornecedores = Empresa::whereIn('empresa_tipo_id', [2,3])
     ->whereNull('deleted_at')
-    ->orderBy('nome_fantasia', 'ASC')
+    ->orderBy('nome_fantasia', 'asc')
     ->get();
     $centrocustos = FinCentroCusto::whereNull('deleted_at')
-    ->orderBy('nome', 'ASC')
+    ->orderBy('nome', 'asc')
     ->get();
     return view('financeiro.movimento.create', compact('item', 'item2', 'conta', 'contas', 'categorias', 'tipo', 'fornecedores', 'centrocustos', 'fatura', 'total'));
   }
@@ -177,10 +177,10 @@ class MovimentoController extends Controller
     $conta = FinConta::where("id",$request->conta_id)->whereNull('deleted_at')->first();
 
     if($conta){
-      $fp = FinContaFatura::where('conta_id', $conta->id)->orderBy('data_vencimento', 'ASC')->first();
+      $fp = FinContaFatura::where('conta_id', $conta->id)->orderBy('data_vencimento', 'asc')->first();
       $fa = FinContaFatura::where('conta_id', $conta->id)->where('status', 2)->first();
       for ($i=0; $i < $repeticoes; $i++) {
-        $fu = FinContaFatura::where('conta_id', $conta->id)->orderBy('data_vencimento', 'DESC')->first();
+        $fu = FinContaFatura::where('conta_id', $conta->id)->orderBy('data_vencimento', 'desc')->first();
         $n = $i+1;
         if($repeticoes > 1){
           $recorrencia = $n.'/'.$repeticoes;
@@ -267,7 +267,7 @@ class MovimentoController extends Controller
           'empresa_id'       => $empresa,
           'categoria_id'     => $request->categoria_id,
           'conta_id'         => $request->conta_id,
-          'conta_fatura_id'  => $conta_fatura_id, 
+          'conta_fatura_id'  => $conta_fatura_id,
           'user_id'          => $usuario,
           'recorrencia'      => $recorrencia,
           'num_doc'          => $num_doc,
@@ -320,7 +320,7 @@ class MovimentoController extends Controller
     ->whereNull("fin_movimentos.deleted_at")
     ->whereNull("fin_contas.deleted_at")
     ->groupBy('fin_contas.id', 'fin_contas.descricao', 'fin_contas.padrao')
-    ->orderBy('fin_contas.padrao', 'DESC')
+    ->orderBy('fin_contas.padrao', 'desc')
     ->get();
     $categorias = FinCategoria::where('categoria_id', NULL)
     ->whereNull('deleted_at')
@@ -328,16 +328,16 @@ class MovimentoController extends Controller
     ->where('nome', '!=', 'Transferência de Saída')
     ->where('nome', '!=', 'Transferência de Entrada')
     ->where('nome', '!=', 'Saldo Inicial')
-    ->orderBy('nome', 'ASC')
+    ->orderBy('nome', 'asc')
     ->with('children')
     ->get();
     $tipo = $request->tipo;
     $fornecedores = Empresa::whereIn('empresa_tipo_id', [2,3])
     ->whereNull('deleted_at')
-    ->orderBy('nome_fantasia', 'ASC')
+    ->orderBy('nome_fantasia', 'asc')
     ->get();
     $centrocustos = FinCentroCusto::whereNull('deleted_at')
-    ->orderBy('nome', 'ASC')
+    ->orderBy('nome', 'asc')
     ->get();
     $tipo = $request->tipo;
     return view('financeiro.movimento.create', compact('item', 'item2', 'conta', 'contas', 'categorias', 'tipo', 'fornecedores', 'centrocustos', 'fa'));
@@ -402,7 +402,7 @@ class MovimentoController extends Controller
     else
       return redirect()->route('movimento.index')->with([ 'error' => 'Falha ao deletar!']);
   }
-  public function lista()
+  public function lista(Request $request)
   {
     $this->authorize('fin_movimento_read');
 
@@ -426,31 +426,28 @@ class MovimentoController extends Controller
     ->whereNotIn("fin_contas.conta_tipo_id", [4,5,6,7]);
 
     $filtro = 0;
-    $order = Request('order');
-    $order = Request()->has('order') ? $order : 'data_baixa';
+    $order = isset($request->order) ? $request->order : 'data_baixa';
+    $sort = isset($request->sort) ? $request->sort : 'asc' ;
 
-    $sort = Request('sort');
-    $sort = Request()->has('sort') ? $sort : 'ASC' ;
+    $tipo = isset($request->tipo) ? $request->tipo : 'Extrato' ;
+    $regime = isset($request->regime) ? $request->regime : 'caixa' ;
 
-    $tipo = Request()->has('tipo') ? Request('tipo') : 'Extrato' ;
-    $regime = Request()->has('regime') ? Request('regime') : 'caixa' ;
+    $pontual = isset($request->input_pontual) ? $request->input_pontual : 'todas' ;
 
-    $pontual = Request()->has('input-pontual') ? Request('input-pontual') : 'todas' ;
+    $lancamento = isset($request->lancamento) ? $request->lancamento : NULL;
+    $conta = isset($request->conta) ? $request->conta : NULL;
+    $fornecedor = isset($request->ffornecedor_id) ? $request->ffornecedor_id : NULL;
+    $categoria = isset($request->fcategoria_id) ? $request->fcategoria_id : NULL;
+    $centrocusto = isset($request->fcentrocusto_id) ? $request->fcentrocusto_id : NULL;
+    $pesquisa = $request->pesquisa;
+    $fdate = $request->data;
 
-    $lancamento = Request()->has('lancamento') ? Request('lancamento') : NULL;
-    $conta = Request()->has('conta') ? Request('conta') : NULL;
-    $fornecedor = Request()->has('ffornecedor_id') ? Request('ffornecedor_id') : NULL;
-    $categoria = Request()->has('fcategoria_id') ? Request('fcategoria_id') : NULL;
-    $centrocusto = Request()->has('fcentrocusto_id') ? Request('fcentrocusto_id') : NULL;
-    $pesquisa = Request('pesquisa');
-    $fdate = Request('data');
-
-    $di = Request()->has('data_inicio') ? str_replace("/", "-", Request('data_inicio')) : date('Y-m');
-    $df = str_replace("/", "-", Request('data_fim'));
+    $di = isset($request->data_inicio) ? str_replace("/", "-", $request->data_inicio) : date('Y-m');
+    $df = str_replace("/", "-", $request->data_fim);
 
     if(isset($pesquisa) || $pesquisa != ''){
       $i->where(function($q) use ($pesquisa) {
-        $dt = date('Y-m-d', strtotime(str_replace("/", "-", $pesquisa))); 
+        $dt = date('Y-m-d', strtotime(str_replace("/", "-", $pesquisa)));
         $q->where('fin_movimentos.descricao', 'LIKE', "%$pesquisa%")
         ->orWhere('fin_contas.descricao', 'LIKE', "%$pesquisa%")
         ->orWhere('fin_categorias.nome', 'LIKE', "%$pesquisa%")
@@ -458,9 +455,9 @@ class MovimentoController extends Controller
         ->orWhere('fin_movimentos.data_vencimento', 'LIKE', "%$dt%")
         ->orWhere('fin_movimentos.data_emissao', 'LIKE', "%$dt%")
         ->orWhere('fin_movimentos.data_baixa', 'LIKE', "%$dt%");
-      })->orderBy('fin_movimentos.descricao', 'ASC')
-      ->orderBy('fin_categorias.nome', 'ASC')
-      ->orderBy('fin_contas.descricao', 'ASC');
+      })->orderBy('fin_movimentos.descricao', 'asc')
+      ->orderBy('fin_categorias.nome', 'asc')
+      ->orderBy('fin_contas.descricao', 'asc');
     }
 
     if($fdate == "fdho"){
@@ -560,16 +557,16 @@ class MovimentoController extends Controller
       $i->orderBy('fin_movimentos.descricao', $sort);
     } else if( $order == 'tipo'){
       $i->orderBy('fin_categorias.tipo', $sort)
-      ->orderBy('fin_movimentos.descricao', 'ASC');
+      ->orderBy('fin_movimentos.descricao', 'asc');
     } else if( $order == 'categoria_nome'){
       $i->orderBy('fin_categorias.nome', $sort)
-      ->orderBy('fin_movimentos.descricao', 'ASC');
+      ->orderBy('fin_movimentos.descricao', 'asc');
     } else if( $order == 'nome_fantasia'){
       $i->orderBy('empresas.nome_fantasia', $sort)
-      ->orderBy('fin_movimentos.descricao', 'ASC');
+      ->orderBy('fin_movimentos.descricao', 'asc');
     } else {
       $i->orderBy($order, $sort)
-      ->orderBy('fin_movimentos.descricao', 'ASC');
+      ->orderBy('fin_movimentos.descricao', 'asc');
     }
 
     $itens = $i->get();
@@ -755,27 +752,27 @@ class MovimentoController extends Controller
     ->whereNotIn("fin_contas.conta_tipo_id", [4,5,6,7]);
 
     $filtro = 0;
-    $order = Request('order');
-    $order = Request()->has('order') ? $order : 'data_baixa';
+    $order = $request->order;
+    $order = isset($request->order) ? $order : 'data_baixa';
 
-    $sort = Request('sort');
-    $sort = Request()->has('sort') ? $sort : 'ASC' ;
+    $sort = $request->sort;
+    $sort = isset($request->sort) ? $sort : 'asc' ;
 
-    $tipo = Request()->has('tipo') ? Request('tipo') : 'Extrato' ;
-    $regime = Request()->has('regime') ? Request('regime') : 'caixa' ;
-    $lancamento = Request()->has('lancamento') ? Request('lancamento') : NULL;
-    $conta = Request()->has('conta') ? Request('conta') : NULL;
-    $fornecedor = Request()->has('ffornecedor_id') ? Request('ffornecedor_id') : NULL;
-    $categoria = Request()->has('fcategoria_id') ? Request('fcategoria_id') : NULL;
-    $pesquisa = Request('pesquisa');
-    $fdate = Request('data');
+    $tipo = isset($request->tipo) ? $request->tipo : 'Extrato' ;
+    $regime = isset($request->regime) ? $request->regime : 'caixa' ;
+    $lancamento = isset($request->lancamento) ? $request->lancamento : NULL;
+    $conta = isset($request->conta) ? $request->conta : NULL;
+    $fornecedor = isset($request->ffornecedor_id) ? $request->ffornecedor_id : NULL;
+    $categoria = isset($request->fcategoria_id) ? $request->fcategoria_id : NULL;
+    $pesquisa = $request->pesquisa;
+    $fdate = $request->data;
 
-    $di = Request()->has('data_inicio') ? str_replace("/", "-", Request('data_inicio')) : date('Y-m');
-    $df = str_replace("/", "-", Request('data_fim'));
+    $di = isset($request->data_inicio) ? str_replace("/", "-", $request->data_inicio) : date('Y-m');
+    $df = str_replace("/", "-", $request->data_fim);
 
     if(isset($pesquisa) || $pesquisa != ''){
       $i->where(function($q) use ($pesquisa) {
-        $dt = date('Y-m-d', strtotime(str_replace("/", "-", $pesquisa))); 
+        $dt = date('Y-m-d', strtotime(str_replace("/", "-", $pesquisa)));
         $q->where('fin_movimentos.descricao', 'LIKE', "%$pesquisa%")
         ->orWhere('fin_contas.descricao', 'LIKE', "%$pesquisa%")
         ->orWhere('fin_categorias.nome', 'LIKE', "%$pesquisa%")
@@ -783,9 +780,9 @@ class MovimentoController extends Controller
         ->orWhere('fin_movimentos.data_vencimento', 'LIKE', "%$dt%")
         ->orWhere('fin_movimentos.data_emissao', 'LIKE', "%$dt%")
         ->orWhere('fin_movimentos.data_baixa', 'LIKE', "%$dt%");
-      })->orderBy('fin_movimentos.descricao', 'ASC')
-      ->orderBy('fin_categorias.nome', 'ASC')
-      ->orderBy('fin_contas.descricao', 'ASC');
+      })->orderBy('fin_movimentos.descricao', 'asc')
+      ->orderBy('fin_categorias.nome', 'asc')
+      ->orderBy('fin_contas.descricao', 'asc');
     }
 
     if($fdate == "fdho"){
@@ -876,16 +873,16 @@ class MovimentoController extends Controller
       $i->orderBy('fin_movimentos.descricao', $sort);
     } else if( $order == 'tipo'){
       $i->orderBy('fin_categorias.tipo', $sort)
-      ->orderBy('fin_movimentos.descricao', 'ASC');
+      ->orderBy('fin_movimentos.descricao', 'asc');
     } else if( $order == 'categoria_nome'){
       $i->orderBy('fin_categorias.nome', $sort)
-      ->orderBy('fin_movimentos.descricao', 'ASC');
+      ->orderBy('fin_movimentos.descricao', 'asc');
     } else if( $order == 'nome_fantasia'){
       $i->orderBy('empresas.nome_fantasia', $sort)
-      ->orderBy('fin_movimentos.descricao', 'ASC');
+      ->orderBy('fin_movimentos.descricao', 'asc');
     } else {
       $i->orderBy($order, $sort)
-      ->orderBy('fin_movimentos.descricao', 'ASC');
+      ->orderBy('fin_movimentos.descricao', 'asc');
     }
 
 

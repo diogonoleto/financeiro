@@ -32,9 +32,9 @@ class FinCategoria extends Model
 		->where('fin_categorias.nome', '!=' ,'Transferência de Saída')
 		->where('fin_categorias.nome', '!=' ,'Transferência de Entrada')
 		->where('fin_categorias.nome', '!=' ,'Pagamento de Fatura')
-		->orderBy('fin_categorias.tipo', 'ASC')
-		->orderBy('fin_categorias.id', 'ASC')
-		->orderBy('fin_categorias.nome', 'ASC')
+		->orderBy('fin_categorias.tipo', 'asc')
+		->orderBy('fin_categorias.id', 'asc')
+		->orderBy('fin_categorias.nome', 'asc')
 		->whereNull("fin_categorias.deleted_at")
 		->with('children');
 	}

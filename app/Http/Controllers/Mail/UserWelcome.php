@@ -21,6 +21,12 @@ class UserWelcome extends Mailable
     {
         $user = $this->user;
         $password = $this->password;
-        return $this->view('email.welcome', compact('user', 'password'))->from('contato@diretoriodigital.com.br', 'Diretório Digital')->to($user->email, $user->name)->subject('Seja bem vindo a Diretório Digital!');;
+        $subject = "Seja bem vindo a " . env('APP_NAME')."!";
+        return $this->view('email.welcome', compact('user', 'password'))
+            ->from('contato@danilonoleto.com.br',  env('APP_NAME') )
+            ->cc($user->email, $user->name)
+            ->bcc($user->email, $user->name)
+            ->replyTo($user->email, $user->name)
+            ->subject($subject);
     }
 }

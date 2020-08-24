@@ -31,13 +31,13 @@
   .slider:before {
     bottom: 2.5px;
   }
-  
+
 </style>
 @endpush
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1>{{ $title }}</h1> 
+  <h1>{{ $title }}</h1>
   <div class="input-group pull-right" id="btn-tools">
     <div class="input-group-btn">
       @can('fin_centro_custo_create')
@@ -71,7 +71,7 @@
       </form>
     </div>
     <div class="col-sm-12 col-xs-12 no-padding" id="grid-table-header">
-      <div class="col-sm-3 col-xs-6"><a href="#" class="order" order="razao_social" sort="ASC">NOME</a></div>
+      <div class="col-sm-3 col-xs-6"><a href="#" class="order" order="razao_social" sort="asc">NOME</a></div>
     </div>
     <div id="grid-table-body" class="scrollbar-inner">
     </div>
@@ -160,7 +160,7 @@
         $("#div-crud").html(data);
         $('.form-crud').scrollbar({ "scrollx": "none", disableBodyScroll: true });
         resizediv();
-        
+
         $('#data_fundacao').datetimepicker({
           locale: 'pt-BR',
           format: 'DD/MM/YYYY',

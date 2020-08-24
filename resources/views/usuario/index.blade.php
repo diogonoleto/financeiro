@@ -2,7 +2,7 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1 class="hidden-xs">{{ $title }}</h1> 
+  <h1 class="hidden-xs">{{ $title }}</h1>
   <div class="input-group pull-right" id="btn-tools">
     <div class="input-group-btn">
       <a href="#" class="btn btn-default" id="btn-search" data-toggle="tooltip" title="Pesquisar Usuário" data-placement="bottom"><i class="mdi mdi-magnify mdi-20px"></i></a>
@@ -36,10 +36,10 @@
       </form>
     </div>
     <div class="col-sm-12 col-xs-12 no-padding" id="grid-table-header">
-      <div class="col-sm-3 col-xs-3"><a href="#" class="order" order="nome" sort="ASC" >NOME</a></div>
-      <div class="col-sm-2 col-xs-2"><a href="#" class="order" order="cpf" sort="ASC" >CPF</a></div>
-      <div class="col-sm-2 col-xs-2"><a href="#" class="order" order="perfil" sort="ASC" >PERFIL</a></div>
-      <div class="col-sm-3 col-xs-3"><a href="#" class="order" order="email" sort="ASC">E-MAIL</a></div>
+      <div class="col-sm-3 col-xs-3"><a href="#" class="order" order="nome" sort="asc" >NOME</a></div>
+      <div class="col-sm-2 col-xs-2"><a href="#" class="order" order="cpf" sort="asc" >CPF</a></div>
+      <div class="col-sm-2 col-xs-2"><a href="#" class="order" order="perfil" sort="asc" >PERFIL</a></div>
+      <div class="col-sm-3 col-xs-3"><a href="#" class="order" order="email" sort="asc">E-MAIL</a></div>
       <div class="col-sm-2 col-xs-2">TELEFONE</div>
     </div>
     <div id="grid-table-body" class="scrollbar-inner">

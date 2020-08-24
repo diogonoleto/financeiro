@@ -118,7 +118,7 @@ class ContaController extends Controller
           $fatura->data_fechamento = $data_fechamento;
           $fatura->data_vencimento = $data_vencimento;
           $fatura->status = 2;
-          $fatura->save(); 
+          $fatura->save();
         }
         $sci = auth()->user()->sis_conta_id;
         if($request->icone){
@@ -193,7 +193,7 @@ class ContaController extends Controller
       if($conta->conta_tipo_id == 4 && $dva != $request->dia_vencimento){
 
         $fatura_atual = FinContaFatura::where('conta_id', $conta->id)->where('status', 2)->first();
-        $fatura_futuras = FinContaFatura::where('conta_id', $conta->id)->where('status', 1)->orderBy('data_vencimento', 'ASC')->get();
+        $fatura_futuras = FinContaFatura::where('conta_id', $conta->id)->where('status', 1)->orderBy('data_vencimento', 'asc')->get();
 
         $data_vencimento = date('Y-m-d', strtotime('+1 month', strtotime($fatura_atual->data_vencimento)));
         $data_vencimento = date('Y-m-'.$request->dia_vencimento, strtotime($data_vencimento));
@@ -415,7 +415,7 @@ class ContaController extends Controller
       $fatura_atuals = FinContaFatura::where('status', 2)->get();
       if(count($fatura_atuals) > 0){
         foreach ($fatura_atuals as $fatura_atual) {
-          $fatura_futuras = FinContaFatura::where('conta_id', $fatura_atual->conta_id)->where('status', 1)->orderBy('data_vencimento', 'ASC')->with('conta')->get();
+          $fatura_futuras = FinContaFatura::where('conta_id', $fatura_atual->conta_id)->where('status', 1)->orderBy('data_vencimento', 'asc')->with('conta')->get();
           if(count($fatura_futuras) > 0){
             foreach ($fatura_futuras as $fatura_futura) {
               while ($fatura_futura->data_vencimento <= $now) {
@@ -447,7 +447,7 @@ class ContaController extends Controller
       $order = Request('order');
       $order = Request()->has('order') ? $order : 'padrao';
       $sort = Request('sort');
-      $sort = Request()->has('sort') ? $sort : 'DESC' ;
+      $sort = Request()->has('sort') ? $sort : 'desc' ;
       $search = Request('input-search');
 
       $i = FinConta::select(DB::raw('fin_contas.*, fin_conta_tipos.nome tnome, sis_bancos.nome bnome'))
@@ -463,13 +463,13 @@ class ContaController extends Controller
           ->orWhere('fin_conta_tipos.nome', 'LIKE', "%$search%")
           ->orWhere('fin_contas.agencia', 'LIKE', "%$search%")
           ->orWhere('fin_contas.conta', 'LIKE', "%$search%");
-        })->orderBy('fin_contas.descricao', 'ASC');
+        })->orderBy('fin_contas.descricao', 'asc');
       } else {
         $i->orderBy($order, $sort)
-        ->orderBy('tnome', $sort);       
+        ->orderBy('tnome', $sort);
       }
       $i->whereNull('fin_contas.deleted_at')
-      ->orderBy('fin_contas.descricao', 'ASC');
+      ->orderBy('fin_contas.descricao', 'asc');
 
       $itens = $i->paginate(28);
       return response(view('financeiro.conta.lista', compact('itens')));
@@ -480,7 +480,7 @@ class ContaController extends Controller
       $order = Request('order');
       $order = Request()->has('order') ? $order : 'data_emissao';
       $sort = Request('sort');
-      $sort = Request()->has('sort') ? $sort : 'ASC' ;
+      $sort = Request()->has('sort') ? $sort : 'asc' ;
       $search = Request('input-search');
 
       $date = Request('date');
@@ -528,24 +528,24 @@ class ContaController extends Controller
         $i->where('fin_movimentos.descricao', 'LIKE', "%$search%")
         ->orWhere('fin_contas.descricao', 'LIKE', "%$search%")
         ->orWhere('fin_categorias.nome', 'LIKE', "%$search%")
-        ->orderBy('fin_movimentos.descricao', 'ASC')
-        ->orderBy('fin_categorias.nome', 'ASC')
-        ->orderBy('fin_contas.descricao', 'ASC');
+        ->orderBy('fin_movimentos.descricao', 'asc')
+        ->orderBy('fin_categorias.nome', 'asc')
+        ->orderBy('fin_contas.descricao', 'asc');
       }
       if($order == 'descricao'){
         $i->orderBy('fin_movimentos.descricao', $sort);
       } else if( $order == 'tipo'){
         $i->orderBy('fin_categorias.tipo', $sort)
-        ->orderBy('fin_movimentos.descricao', 'ASC');
+        ->orderBy('fin_movimentos.descricao', 'asc');
       } else if( $order == 'categoria_nome'){
         $i->orderBy('fin_categorias.nome', $sort)
-        ->orderBy('fin_movimentos.descricao', 'ASC');
+        ->orderBy('fin_movimentos.descricao', 'asc');
       } else {
         if( count($fatura) > 0 ){
           $i->orderBy($order, $sort)
-          ->orderBy('fin_movimentos.descricao', 'ASC');
+          ->orderBy('fin_movimentos.descricao', 'asc');
         } else {
-          $i->orderBy('fin_movimentos.data_baixa', 'ASC');
+          $i->orderBy('fin_movimentos.data_baixa', 'asc');
           \Log::info("54321:");
         }
       }

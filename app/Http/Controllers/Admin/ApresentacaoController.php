@@ -71,7 +71,7 @@ class ApresentacaoController  extends Controller
       $user->nome         = $request->nome;
       $user->email        = $request->email;
       $user->telefone     = $request->telefone;
-      
+
       $cpf = str_replace('.', '', $request->cpf);
       $cpf = str_replace('-', '', $cpf);
       $user->cpf          = $cpf;
@@ -175,7 +175,7 @@ class ApresentacaoController  extends Controller
     if($respConta){
       $item['conta'] = $conta;
       $conta->modulo()->sync($modulos);
-      
+
       $user = User::where('id', $conta->user_id)->first();
       $user->nome         = $request->nome;
       $user->email        = $request->email;
@@ -228,20 +228,20 @@ class ApresentacaoController  extends Controller
     $order = Request('order');
     $order = Request()->has('order') ? $order : 'nome';
     $sort = Request('sort');
-    $sort = Request()->has('sort') ? $sort : 'ASC' ;
+    $sort = Request()->has('sort') ? $sort : 'asc' ;
 
 
     $search = Request('input-search');
     if( $search || $search != '' ){
       $itens = User::where('nome', 'LIKE', "%$search%")
                   ->orWhere('cargo', 'LIKE', "%$search%")
-                  ->orderBy('nome', 'ASC')
+                  ->orderBy('nome', 'asc')
                   ->with('userContato')
                   ->paginate(28);
     } else {
 
     $itens = SisConta::orderBy($order, $sort)
-      ->paginate(28);         
+      ->paginate(28);
     }
     // dd($itens);
 

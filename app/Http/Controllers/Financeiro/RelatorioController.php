@@ -73,7 +73,7 @@ class RelatorioController extends Controller
     }
 
     $i->groupBy('fin_movimentos.data_vencimento', 'fin_categorias.tipo');
-    $itens = $i->get();      
+    $itens = $i->get();
 
     $total = floatval($tot->valor);
     $ob = "";
@@ -134,8 +134,8 @@ class RelatorioController extends Controller
 
     $date = date('2018-m-d');
     $from = date('Y-01-01', strtotime($date));
-    $to = date('Y-12-31', strtotime($date)); 
-    
+    $to = date('Y-12-31', strtotime($date));
+
 
     $title = 'Fluxo de Caixa Mensal';
     $contas = FinConta::whereNotIn("conta_tipo_id", [5,6,7])->whereNull("deleted_at")->get();
@@ -207,9 +207,9 @@ class RelatorioController extends Controller
                           // ->where('nome', '!=', 'Saldo Inicial')
     ->where('nome', '!=' ,'Transferência de Saída')
     ->where('nome', '!=' ,'Transferência de Entrada')
-    ->orderBy('fin_categorias.tipo', 'ASC')
-    ->orderBy('fin_categorias.ordem', 'ASC')
-    ->orderBy('fin_categorias.nome', 'ASC')
+    ->orderBy('fin_categorias.tipo', 'asc')
+    ->orderBy('fin_categorias.ordem', 'asc')
+    ->orderBy('fin_categorias.nome', 'asc')
     ->with('childrenfca')
     ->whereNull("fin_categorias.deleted_at")
     ->get();
@@ -223,7 +223,7 @@ class RelatorioController extends Controller
     $row["r3"][] = 'Total De Recebimentos';
 
     $ob = "";
-    
+
 
     for ($i=0; $i < $mes_qtde; $i++) {
       $dtf = Carbon::parse($from)->addMonth($i)->toDateString();
@@ -1308,7 +1308,7 @@ class RelatorioController extends Controller
     $ob .= '<div class="metop">';
     $ob .= 'Total';
     $ob .= '</div>';
-    
+
 
     $RBV=0;
     foreach($dres as $ca){
@@ -1842,7 +1842,7 @@ class RelatorioController extends Controller
     $ob .= '<div class="metop">';
     $ob .= 'Total';
     $ob .= '</div>';
-    
+
 
     $RBV=0;
     foreach($dres as $ca){

@@ -323,12 +323,12 @@ class ContaController  extends Controller
         $order = Request('order');
         $order = Request()->has('order') ? $order : 'nome';
         $sort = Request('sort');
-        $sort = Request()->has('sort') ? $sort : 'ASC' ;
+        $sort = Request()->has('sort') ? $sort : 'asc' ;
         $search = Request('input-search');
         if( $search || $search != '' ){
           $itens = User::where('nome', 'LIKE', "%$search%")
           ->orWhere('cargo', 'LIKE', "%$search%")
-          ->orderBy('nome', 'ASC')
+          ->orderBy('nome', 'asc')
           ->with('userContato')
           ->paginate(28);
         } else {

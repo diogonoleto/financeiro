@@ -1,3 +1,4 @@
+@if(isset($item->id))
 <div class="col-sm-12 div-impr scrollbar-inner no-padding {{ isset($item->id) ? null : 'hidden' }}">
 	<div class="col-sm-12" style="border-bottom: 1px solid #ccc; padding: 10px 0px;">
 		<div class="col-sm-3 text-center" style="padding-right: 0px;">
@@ -11,7 +12,7 @@
 		</div>
 		<div class="col-sm-9">
 			<form method="post" id="usuarioEditForm" action="{{ route('usuario.update', $item->id) }}" class="hidden">
-				{{ method_field('put') }} 
+				{{ method_field('put') }}
 				{{ csrf_field() }}
 				<div class="col-sm-12 no-padding">
 					<div class="form-group">
@@ -205,12 +206,12 @@
 			<div class="col-xs-11">
 				{{ $item->maisInfo->estado_civil == 1 ? 'Solteiro(a)' :
 				$item->maisInfo->estado_civil == 2 ? 'Casado(a)' :
-				$item->maisInfo->estado_civil == 3 ? 'Divorciado(a)' : 
-				$item->maisInfo->estado_civil == 4 ? 'Viúvo(a)' : 
+				$item->maisInfo->estado_civil == 3 ? 'Divorciado(a)' :
+				$item->maisInfo->estado_civil == 4 ? 'Viúvo(a)' :
 				$item->maisInfo->estado_civil == 5 ? 'Separado(a)' : null}}
 			</div>
 		</div>
-		@endif	
+		@endif
 		@if(isset($item->maisInfo->sexo))
 		<div class="col-xs-12 cinfo no-padding">
 			<div class="col-xs-1 no-padding text-center"><i class="mdi {{ $item->maisInfo->sexo == 1 ? 'mdi-gender-male' : 'mdi-gender-female' }} mdi-24px" style="color:#8BC34A;"></i></div>
@@ -262,6 +263,7 @@
 		</div>
 	</div>
 </div>
+@else
 <div class="col-xs-12 {{ isset($item->id) ? 'hidden' : null }}" id="usuario-novo">
 	<div class="title">Cadastrar Usuário</div>
 	<form method="post" id="usuarioForm" action="{{ route('usuario.store') }}">
@@ -440,6 +442,7 @@
 		</div>
 	</form>
 </div>
+@endif
 <div class="div-right col-sm-6 no-padding hidden div-dase" style="height: 100%;">
 	<form method="post" id="usuarioMaisInfoForm" action="{{ route('usuario.maisInfo') }}">
 		<div class="form-crud scrollbar-inner" style="height: calc(100% - 55px); margin-bottom: 0; margin-top: 0">
@@ -544,19 +547,19 @@
 			<div class="div-cpf col-sm-12">
 				<div class="form-group">
 					<label for="profissao">Profissão</label>
-					<input type="text" id="profissao" name="profissao" class="form-control" maxlength="50" placeholder="" value="{{ $item->maisInfo->profissao or old('profissao') }}">
+					<input type="text" id="profissao" name="profissao" class="form-control" maxlength="50" placeholder="" value="{{ old('profissao') }}">
 				</div>
 			</div>
 			<div class="div-cpf col-sm-12">
 				<div class="form-group">
 					<label for="nome_mae">Nome da Mãe</label>
-					<input type="text" id="nome_mae" name="nome_mae" class="form-control" maxlength="50" placeholder="" value="{{ $item->maisInfo->nome_mae or old('nome_mae') }}">
+					<input type="text" id="nome_mae" name="nome_mae" class="form-control" maxlength="50" placeholder="" value="{{ old('nome_mae') }}">
 				</div>
 			</div>
 			<div class="div-cpf col-sm-12">
 				<div class="form-group">
 					<label for="nome_pai">Nome do Pai</label>
-					<input type="text" id="nome_pai" name="nome_pai" class="form-control" maxlength="50" placeholder="" value="{{ $item->maisInfo->nome_pai or old('nome_pai') }}">
+					<input type="text" id="nome_pai" name="nome_pai" class="form-control" maxlength="50" placeholder="" value="{{ old('nome_pai') }}">
 				</div>
 			</div>
 			<div class="div-cpf col-sm-12">
@@ -714,14 +717,14 @@
 		<div class="col-sm-12">
 			<div class="form-group">
 				<label for="descricao" id="descricao-lab">E-mail</label>
-				<input type="email" id="descricao" name="descricao" class="form-control" required placeholder="Digite o e-mail!" value="{{ $contato->descricao or old('descricao') }}">
+				<input type="email" id="descricao" name="descricao" class="form-control" required placeholder="Digite o e-mail!" value="{{ old('descricao') }}">
 				<span class="help-block"></span>
 			</div>
 		</div>
 		<div class="col-sm-12">
 			<div class="form-group">
 				<label for="detalhe">Detalhes</label>
-				<input type="text" id="detalhe" name="detalhe" class="form-control" placeholder="Informações Adicionais" value="{{ $contato->detalhe or old('detalhe') }}">
+				<input type="text" id="detalhe" name="detalhe" class="form-control" placeholder="Informações Adicionais" value="{{ old('detalhe') }}">
 				<span class="help-block"></span>
 			</div>
 		</div>
@@ -796,3 +799,4 @@
 		</div>
 	</form>
 </div>
+

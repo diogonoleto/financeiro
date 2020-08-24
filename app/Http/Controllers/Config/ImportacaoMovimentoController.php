@@ -56,7 +56,7 @@ class ImportacaoMovimentoController extends Controller
         foreach($data as $sheet)
         {
           if($request->tipo == 'ReceitaDespesa'){
-            $tipo = $sheet->getTitle(); 
+            $tipo = $sheet->getTitle();
           } else {
             if($request->tipo != $sheet->getTitle())
               continue;
@@ -149,7 +149,7 @@ class ImportacaoMovimentoController extends Controller
           foreach($data as $sheet)
           {
             if($request->tipo == 'ReceitaDespesa'){
-              $tipo = $sheet->getTitle(); 
+              $tipo = $sheet->getTitle();
             } else {
               if($request->tipo != $sheet->getTitle())
                 continue;
@@ -169,11 +169,11 @@ class ImportacaoMovimentoController extends Controller
               $eti = ($categoria->tipo == 'Despesa') ? 2 : 3;
               if($value->cnpjcpf){
                 $cnpj = str_replace('/', '', str_replace('-', '', str_replace('.', '', $value->cnpjcpf)));
-                $fornecedor = Empresa::where("empresa_tipo_id", $eti)->where('cnpj', $cnpj)->orderBy('cnpj')->first(); 
+                $fornecedor = Empresa::where("empresa_tipo_id", $eti)->where('cnpj', $cnpj)->orderBy('cnpj')->first();
               }
               if(!$fornecedor){
                 if($value->nome){
-                  $fornecedor = Empresa::where("empresa_tipo_id", $eti)->where('nome_fantasia', $value->nome)->first(); 
+                  $fornecedor = Empresa::where("empresa_tipo_id", $eti)->where('nome_fantasia', $value->nome)->first();
                   if(!$fornecedor){
                     $nome = $value->nome;
                     $cnpj = isset($value->cnpjcpf) ? str_replace('/', '', str_replace('-', '', str_replace('.', '', $value->cnpjcpf))) : null;
@@ -263,11 +263,11 @@ class ImportacaoMovimentoController extends Controller
     $order = Request('order');
     $order = Request()->has('order') ? $order : 'created_at';
     $sort = Request('sort');
-    $sort = Request()->has('sort') ? $sort : 'ASC' ;
+    $sort = Request()->has('sort') ? $sort : 'asc' ;
     $search = Request('input-search');
     if( $search || $search != '' ){
       $itens = FinImportacao::where('tipo_id', 1)->where('nome', 'LIKE', "%$search%")
-      ->orderBy('nome', 'ASC')
+      ->orderBy('nome', 'asc')
       ->paginate(28);
     } else {
       $itens = FinImportacao::where('tipo_id', 1)->orderBy($order, $sort)

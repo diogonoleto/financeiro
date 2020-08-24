@@ -57,7 +57,7 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1>{{ $title }}</h1> 
+  <h1>{{ $title }}</h1>
   <div class="input-group pull-right" id="btn-tools">
     <div class="input-group-btn">
       <a href="#" class="btn-conta-delete hidden"></a>
@@ -67,7 +67,7 @@
       <a href="{{ route('adminCon.conta.index') }}" style="color: green;" class="btn btn-default" data-toggle="tooltip" title="Contas" data-placement="bottom"><i class="mdi mdi-folder-account mdi-20px"></i></a>
 
       <a href="{{ route('usuario.index') }}" style="color: green;" class="btn btn-default" data-toggle="tooltip" title="Usuários" data-placement="bottom"><i class="mdi mdi-account-multiple mdi-20px"></i></a>
-      
+
 <!--       <a href="{{ route('empresa.index') }}" class="btn btn-default" data-toggle="tooltip" title="Config. Empresa" data-placement="bottom"><i class="mdi mdi-store mdi-20px"></i></a>
 
   <a href="{{ route('fornecedor.index') }}" class="btn btn-default" data-toggle="tooltip" title="Config. Fornecedores" data-placement="bottom"><i class="mdi mdi-truck mdi-20px"></i></a> -->
@@ -85,10 +85,10 @@
       </form>
     </div>
     <div class="col-sm-12 col-xs-12 no-padding text-center" id="grid-table-header">
-      <div class="col-sm-3 col-xs-3 text-left"><a href="#" class="order" order="nome" sort="ASC" >EMPRESA GRUPO</a></div>
-      <div class="col-sm-2 col-xs-2"><a href="#" class="order" order="email" sort="ASC">Q.M. EMPRESA</a></div>
-      <div class="col-sm-2 col-xs-2"><a href="#" class="order" order="email" sort="ASC">Q.M. CLIENTE</a></div>
-      <div class="col-sm-2 col-xs-2"><a href="#" class="order" order="email" sort="ASC">Q.M. FORNECEDOR</a></div>
+      <div class="col-sm-3 col-xs-3 text-left"><a href="#" class="order" order="nome" sort="asc" >EMPRESA GRUPO</a></div>
+      <div class="col-sm-2 col-xs-2"><a href="#" class="order" order="email" sort="asc">Q.M. EMPRESA</a></div>
+      <div class="col-sm-2 col-xs-2"><a href="#" class="order" order="email" sort="asc">Q.M. CLIENTE</a></div>
+      <div class="col-sm-2 col-xs-2"><a href="#" class="order" order="email" sort="asc">Q.M. FORNECEDOR</a></div>
       <div class="col-sm-2 col-xs-2">Q.M. FUNCIONÁRIO</div>
       <div class="col-sm-1 col-xs-1">ATIVA</div>
     </div>

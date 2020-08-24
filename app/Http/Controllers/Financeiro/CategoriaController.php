@@ -39,7 +39,7 @@ class CategoriaController extends Controller
     $categoria->descricao = $request->descricao;
     $categoria->tipo = $request->tipo;
     if($request->categoria_id){
-      $cat = FinCategoria::where('categoria_id', $request->categoria_id)->whereNull("deleted_at")->orderBy('id', 'DESC')->first();
+      $cat = FinCategoria::where('categoria_id', $request->categoria_id)->whereNull("deleted_at")->orderBy('id', 'desc')->first();
       if($cat){
         $qtde = explode('.', $cat->cod, -1);
         if(count($qtde) == 1){
@@ -59,11 +59,11 @@ class CategoriaController extends Controller
           $categoria->cod = $icat->cod."1.";
         } else {
           $categoria->cod = "1.";
-        } 
+        }
       }
       $categoria->categoria_id = $request->categoria_id;
     } else {
-      $cat = FinCategoria::whereNull("categoria_id")->whereNull("deleted_at")->orderBy('id', 'DESC')->first();
+      $cat = FinCategoria::whereNull("categoria_id")->whereNull("deleted_at")->orderBy('id', 'desc')->first();
       if($cat){
         $qtde = explode('.', $cat->cod, -1);
         if(count($qtde) == 1){
@@ -170,7 +170,7 @@ class CategoriaController extends Controller
       $item->dre_id = $request->dre_id;
       $item->update();
       if(!$item->categoria_id)
-        $item->childrendre()->update(['dre_id' => $request->dre_id]); 
+        $item->childrendre()->update(['dre_id' => $request->dre_id]);
       return redirect()->route('fin.categoria.lista');
     } else {
       $item = FinCategoria::find($request->categoria_id);
@@ -190,9 +190,9 @@ class CategoriaController extends Controller
     ->where('fin_categorias.nome', '!=' ,'Transferência de Saída')
     ->where('fin_categorias.nome', '!=' ,'Transferência de Entrada')
     ->where('fin_categorias.nome', '!=' ,'Pagamento de Fatura')
-    ->orderBy('fin_categorias.tipo', 'ASC')
-    ->orderBy('fin_categorias.id', 'ASC')
-    ->orderBy('fin_categorias.nome', 'ASC')
+    ->orderBy('fin_categorias.tipo', 'asc')
+    ->orderBy('fin_categorias.id', 'asc')
+    ->orderBy('fin_categorias.nome', 'asc')
     ->whereNull("fin_categorias.deleted_at")
     ->get();
     return response(view('financeiro.categoria.lista', compact('categorias')));

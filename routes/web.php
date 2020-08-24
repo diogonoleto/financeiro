@@ -1,15 +1,27 @@
 <?php
 
-use App\Models\PagSeguro\PagSeguro;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
 Route::get('/', function () {
-	return view('welcome');
+    return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/redirect', 'Auth\SocialAuthFacebookController@redirect');
-Route::get('/callback', 'Auth\SocialAuthFacebookController@callback');
+// Route::get('/redirect', 'Auth\SocialAuthFacebookController@redirect');
+// Route::get('/callback', 'Auth\SocialAuthFacebookController@callback');
 
 Route::get('/home', 'HomeController@index');
 Route::post('/password/changepassword', ['uses' => 'HomeController@changePassword', 'as' => 'changePassword']);
@@ -95,42 +107,17 @@ Route::group(['namespace'=>'Financeiro', 'middleware'=>'auth'], function(){
 	Route::match(['put', 'patch'],'/financeiro/conta/lista/{id}', ['uses' => 'ContaController@padrao', 'as' => 'financeiro.conta.padrao']);
 
 	Route::get('/financeiro/conta/banco', ['uses' => 'ContaController@banco', 'as' => 'financeiro.conta.banco']);
-	
+
 	Route::get('/financeiro/conta/cartaocredito', ['uses' => 'ContaController@contalista', 'as' => 'financeiro.conta.cartaocredito']);
 	Route::get('/financeiro/conta/contacorrente', ['uses' => 'ContaController@contalista', 'as' => 'financeiro.conta.contacorrente']);
 	Route::get('/financeiro/conta/contalista', ['uses' => 'ContaController@contalista', 'as' => 'financeiro.conta.contalista']);
 	Route::get('/financeiro/conta/lista', ['uses' => 'ContaController@lista', 'as' => 'financeiro.conta.lista']);
 	Route::resource('/financeiro/conta', 'ContaController');
 
-
-
 	Route::get('/financeiro/categoria/dre', ['uses' => 'CategoriaController@dre', 'as' => 'fin.categoria.dre']);
 	Route::get('/financeiro/categoria/sortable', ['uses' => 'CategoriaController@sortable', 'as' => 'fin.categoria.sortable']);
 	Route::get('/financeiro/categoria/lista', ['uses' => 'CategoriaController@lista', 'as' => 'fin.categoria.lista']);
 	Route::resource('/financeiro/categoria', 'CategoriaController', ['except' => ['create', 'show', 'edit'], 'as' => 'fin']);
-});
-
-Route::group(['namespace'=>'Estoque', 'middleware'=>'auth'], function(){
-	Route::get('/estoque/movimento/lista', ['uses' => 'EstoqueMovimentoController@lista', 'as' => 'estoque.movimento.lista']);
-	Route::get('/estoque/movimento/{id}', ['uses' => 'EstoqueMovimentoController@index', 'as' => 'estq.movimento.index']);
-	Route::resource('/estoque/movimento', 'EstoqueMovimentoController', ['except' => ['show', 'index'], 'as' => 'estq']);
-	Route::get('/estoque/lista', ['uses' => 'EstoqueController@lista', 'as' => 'estoque.lista']);
-	Route::resource('/estoque', 'EstoqueController', ['except' => ['show']]);
-});
-
-Route::group(['namespace'=>'Compra', 'middleware'=>'auth'], function(){
-	Route::get('/compra/lista', ['uses' => 'CompraController@lista', 'as' => 'compra.lista']);
-	Route::match(['put', 'patch'],'/compra/{id}/{iid?}', ['uses' => 'CompraController@update', 'as' => 'compra.update']);
-	Route::delete('/compra/{id}/{iid?}', ['uses' => 'CompraController@destroy', 'as' => 'compra.destroy']);
-	Route::resource('/compra', 'CompraController', ['except' => ['show', 'destroy', 'update', 'edit']]);
-	Route::match(['get', 'HEAD'],'/compra/{id}/{iid?}', ['uses' => 'CompraController@edit', 'as' => 'compra.edit']);
-});
-
-Route::group(['namespace'=>'Produto', 'middleware'=>'auth'], function(){
-	Route::get('/produto/lista', ['uses' => 'ProdutoController@lista', 'as' => 'produto.lista']);
-	Route::resource('/produto', 'ProdutoController', ['except' => ['show']]);
-	Route::get('/produto/categoria/lista', ['uses' => 'CategoriaController@lista', 'as' => 'produto.categoria.lista']);
-	Route::resource('/produto/categoria', 'CategoriaController', ['except' => ['create', 'show', 'edit'], 'as' => 'produto']);
 });
 
 Route::group(['namespace'=>'Admin', 'middleware'=>'auth'], function(){
@@ -145,46 +132,6 @@ Route::group(['namespace'=>'Admin', 'middleware'=>'auth'], function(){
 	Route::resource('/admin/apresentacao', 'ApresentacaoController', ['except' => ['create', 'show', 'edit'], 'as' => 'adminApr' ]);
 });
 
+Auth::routes();
 
-Route::get('/checkout/success', function () {
-	return 'Pagamento efetuado com sucesso!';
-});
-Route::get('/checkout/{id}', function ($id, PagSeguro $pagSeguro) {
-	$data = [];
-	$data['email'] = 'diogonoletodasilva@gmail.com';
-	$data['token'] = '894B6872BF9F49969B1AF0ACEE56B19E';
-
-	$response = $pagSeguro->request(PagSeguro::SESSION_SANDBOX, $data);
-
-	$session = new \SimpleXMLElement($response->getContents());
-	$session = $session->id;
-
-	$amount = number_format(521.50, 2, '.', '');
-
-	return view('store.checkout', compact('id', 'session', 'amount'));
-});
-Route::post('/checkout/{id}', function ($id, PagSeguro $pagSeguro) {
-	$data = request()->all();
-	unset($data['_token']);
-	$data['email'] = 'diogonoletodasilva@gmail.com';
-	$data['token'] = '894B6872BF9F49969B1AF0ACEE56B19E';
-	$data['paymentMode'] = 'default';
-	$data['paymentMethod'] = 'creditCard';
-	$data['receiverEmail'] = 'diogonoletodasilva@gmail.com';
-	$data['currency'] = 'BRL';
-	$data['senderAreaCode'] = substr($data['senderPhone'], 0, 2);
-	$data['senderPhone'] = substr($data['senderPhone'], 2, strlen($data['senderPhone']));
-	$data['creditCardHolderAreaCode'] = substr($data['creditCardHolderPhone'], 0, 2);
-	$data['creditCardHolderPhone'] = substr($data['creditCardHolderPhone'], 2, strlen($data['creditCardHolderPhone']));
-	$data['installmentValue'] = number_format($data['installmentValue'], 2, '.', '');
-	$data['shippingAddressCountry'] = 'BR';
-	$data['billingAddressCountry'] = 'BR';
-	try {
-		$response = $pagSeguro->request(PagSeguro::CHECKOUT_SANDBOX, $data);
-	} catch (\Exception $e) {
-		dd($e->getMessage());
-	}
-    //return $data;
-	return ['status'=>'success'];
-})->name('checkout');
-
+Route::get('/home', 'HomeController@index')->name('home');

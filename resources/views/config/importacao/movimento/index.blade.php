@@ -98,7 +98,7 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1>{{ $title }}</h1> 
+  <h1>{{ $title }}</h1>
   <div class="input-group pull-right" id="btn-tools">
     <div class="input-group-btn">
       @can('config_importacao_create')
@@ -143,8 +143,8 @@
       </form>
     </div>
     <div class="col-sm-12 col-xs-12 no-padding" id="grid-table-header">
-      <div class="col-sm-8 col-xs-6"><a href="#" class="order" order="razao_social" sort="ASC">NOME</a></div>
-      <div class="col-sm-3 col-xs-6 text-right"><a href="#" class="order" order="data_importacao" sort="ASC">DATA IMPORTAÇÃO</a></div>
+      <div class="col-sm-8 col-xs-6"><a href="#" class="order" order="razao_social" sort="asc">NOME</a></div>
+      <div class="col-sm-3 col-xs-6 text-right"><a href="#" class="order" order="data_importacao" sort="asc">DATA IMPORTAÇÃO</a></div>
     </div>
     <div id="grid-table-body">
     </div>

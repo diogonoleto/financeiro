@@ -276,7 +276,7 @@ label span {
     @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1 class="hidden-xs">{{ $title }}</h1> 
+      <h1 class="hidden-xs">{{ $title }}</h1>
       <div class="input-group pull-right" id="btn-tools">
         <div class="input-group-btn">
           <a href="#" class="btn-conta-delete hidden"></a>
@@ -316,10 +316,10 @@ label span {
             </form>
           </div>
           <div class="col-xs-12 no-padding" id="grid-table-header">
-            <div title="PADRÃO"><a href="#" class="order" order="padrao" sort="ASC">PADRÃO</a></div>
-            <div class="col-xs-1 col-sm-1 hidden-xs" title="IDENTIFIÇÃO DA CONTA"><a href="#" class="order" order="id" sort="ASC">ID CONTA</a></div>
-            <div class="col-xs-12 col-sm-5"><a href="#" class="order" order="descricao" sort="ASC" title="CONTA">CONTA</a> / <a href="#" class="order" order="tipo_conta" sort="ASC" title="CONTA">TIPO DE CONTA</a></div>
-            <div class="col-xs-6 col-sm-3" title="BANCO"><a href="#" class="order" order="banco" sort="ASC">BANCO</a></div>
+            <div title="PADRÃO"><a href="#" class="order" order="padrao" sort="asc">PADRÃO</a></div>
+            <div class="col-xs-1 col-sm-1 hidden-xs" title="IDENTIFIÇÃO DA CONTA"><a href="#" class="order" order="id" sort="asc">ID CONTA</a></div>
+            <div class="col-xs-12 col-sm-5"><a href="#" class="order" order="descricao" sort="asc" title="CONTA">CONTA</a> / <a href="#" class="order" order="tipo_conta" sort="asc" title="CONTA">TIPO DE CONTA</a></div>
+            <div class="col-xs-6 col-sm-3" title="BANCO"><a href="#" class="order" order="banco" sort="asc">BANCO</a></div>
             <div class="col-xs-1 col-sm-1 cl-cimg hb-cimg hidden-xs" style="max-width: 43px; min-width: 43px;"></div>
             <div class="col-xs-2 col-sm-2 hidden-xs" title="SALDO INICIAL">SALDO INICIAL</div>
           </div>

@@ -29,10 +29,10 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1>{{ $title }}</h1> 
+  <h1>{{ $title }}</h1>
   <div class="input-group pull-right" id="btn-tools">
     <div class="input-group-btn">
-      <div id="del-group"></div>  
+      <div id="del-group"></div>
       <a href="#" class="btn btn-default" id="btn-search" data-toggle="tooltip" title="Pesquisar usuario" data-placement="bottom"><i class="mdi mdi-magnify mdi-20px"></i></a>
       <a href="#" class="btn btn-default btn-usuario-create" style="margin-right: 5px" route="{{ route('usuario.create') }}" data-toggle="tooltip" title="Adicionar usuario" data-placement="bottom"><i class="mdi mdi-plus mdi-20px" aria-hidden="true"></i></a>
 
@@ -58,9 +58,9 @@
     </div>
     <div class="col-sm-12 col-xs-12 no-padding" id="grid-table-header">
       <div style="width: 40px;padding: 0px  5px 0px;float: left;"><input type="checkbox"><i class="mdi mdi-checkbox-blank-outline mdi-24px checkbox" id="checkbox-all"></i></div>
-      <div class="col-sm-3 col-xs-3"><a href="#" class="order" order="nome" sort="ASC" >NOME</a></div>
-      <div class="col-sm-3 col-xs-3"><a href="#" class="order" order="conta" sort="ASC" >CONTA</a></div>
-      <div class="col-sm-3 col-xs-3"><a href="#" class="order" order="email" sort="ASC">E-MAIL</a></div>
+      <div class="col-sm-3 col-xs-3"><a href="#" class="order" order="nome" sort="asc" >NOME</a></div>
+      <div class="col-sm-3 col-xs-3"><a href="#" class="order" order="conta" sort="asc" >CONTA</a></div>
+      <div class="col-sm-3 col-xs-3"><a href="#" class="order" order="email" sort="asc">E-MAIL</a></div>
       <div class="col-sm-3 col-xs-3" style="width: calc(25% - 40px);">TELEFONE</div>
     </div>
     <div id="grid-table-body">
@@ -124,7 +124,7 @@
           $("#bairro").val(data.bairro);
 
           $("#numero").focus();
-          
+
           $(".se-pre-con").fadeOut();
         },
         error: function(data){
@@ -150,11 +150,11 @@
     if( $(this).hasClass('btn-usuario-create')){
       $("#usuario-list").toggleClass("col-sm-8").toggleClass("col-xs-8");
       $("#usuario-create").toggleClass("hidden");
-      $("#form-usuario-create").attr("action", $(this).attr("route")); 
+      $("#form-usuario-create").attr("action", $(this).attr("route"));
     } else {
       $("#usuario-list").addClass("col-sm-8").addClass("col-xs-8");
       $("#usuario-create").removeClass("hidden");
-      $("#form-usuario-create").attr("action", $(this).attr("route")); 
+      $("#form-usuario-create").attr("action", $(this).attr("route"));
     }
     $("#form-usuario-create").submit();
   });

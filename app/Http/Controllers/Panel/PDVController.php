@@ -61,7 +61,7 @@ class PDVController extends Controller
       $pdv->imprime = $request->imprime;
       $pdv->imprime_ip = $request->imprime_ip;
       $pdv->nfce_ip = $request->nfce_ip;
-      $pdv->nfce_num_serie = $request->nfce_num_serie; 
+      $pdv->nfce_num_serie = $request->nfce_num_serie;
       $pdv->nfce_num_nota = $request->nfce_num_nota;
     } else {
       $pdv->imprime = $request->imprime;
@@ -121,7 +121,7 @@ class PDVController extends Controller
       $pdv->imprime = $request->imprime;
       $pdv->imprime_ip = $request->imprime_ip;
       $pdv->nfce_ip = null;
-      $pdv->nfce_num_serie = null; 
+      $pdv->nfce_num_serie = null;
       $pdv->nfce_num_nota = null;
 
 
@@ -129,13 +129,13 @@ class PDVController extends Controller
       $pdv->imprime = $request->imprime;
       $pdv->imprime_ip = $request->imprime_ip;
       $pdv->nfce_ip = $request->nfce_ip;
-      $pdv->nfce_num_serie = $request->nfce_num_serie; 
+      $pdv->nfce_num_serie = $request->nfce_num_serie;
       $pdv->nfce_num_nota = $request->nfce_num_nota;
     } else {
       $pdv->imprime = $request->imprime;
       $pdv->imprime_ip = null;
       $pdv->nfce_ip = null;
-      $pdv->nfce_num_serie = null; 
+      $pdv->nfce_num_serie = null;
       $pdv->nfce_num_nota = null;
     }
 
@@ -161,14 +161,14 @@ class PDVController extends Controller
     $order = Request('order');
     $order = Request()->has('order') ? $order : 'nome';
     $sort = Request('sort');
-    $sort = Request()->has('sort') ? $sort : 'ASC' ;
+    $sort = Request()->has('sort') ? $sort : 'asc' ;
     $search = Request('input-search');
 
     if( $order == 'plataforma' ){
       $itens = PontoDeVenda::select(DB::raw('ponto_de_vendas.*, plataformas.nome pnome'))
       ->join('plataformas', 'plataformas.id', '=', 'ponto_de_vendas.plataforma_id')
       ->orderBy('plataformas.nome', $sort)
-      ->orderBy('ponto_de_vendas.nome', 'ASC')
+      ->orderBy('ponto_de_vendas.nome', 'asc')
       ->with('plataforma')
       ->paginate(28);
     } else if( $search || $search != '' ){
@@ -178,7 +178,7 @@ class PDVController extends Controller
       ->orWhere('plataformas.nome', 'LIKE', "%$search%")
       ->orWhere('ponto_de_vendas.responsavel', 'LIKE', "%$search%")
       ->orWhere('ponto_de_vendas.uuid', 'LIKE', "%$search%")
-      ->orderBy('ponto_de_vendas.nome', 'ASC')
+      ->orderBy('ponto_de_vendas.nome', 'asc')
       ->with("plataforma")
       ->paginate(28);
     } else {
