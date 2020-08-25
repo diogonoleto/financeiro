@@ -64,7 +64,16 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
-
+        'avatar_file' => [
+            'driver' => 'local',
+            'root' => 'img/avatars',
+            'visibility' => 'public',
+        ],
+        'banco_file' => [
+            'driver' => 'local',
+            'root' => 'img/bancos',
+            'visibility' => 'public',
+        ]
     ],
 
     /*
