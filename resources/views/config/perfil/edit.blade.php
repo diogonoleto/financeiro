@@ -27,7 +27,7 @@
 #grid-table-header {
   border: 1px solid #eeeeee;
   border-right: 0;
-  border-bottom: 1px solid #8BC34A;
+  border-bottom: 1px solid #ddbd6f;
 }
 #grid-table-footer {
   border: 1px solid #eeeeee;
@@ -84,13 +84,13 @@
   overflow: auto;
 }
 .mdi-checkbox-marked-outline {
-  color: #8BC34A;
+  color: #ddbd6f;
 }
 .table-condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th {
   padding: 0px 10px;
 }
 .mdi-checkbox-blank{
-  color: #8bc34a8a;
+  color: #ddbd6f8a;
 }
 
 </style>
@@ -145,19 +145,19 @@
       {{ method_field('put') }}
       {{ csrf_field() }}
       <table class="table table-bordered table-striped table-condensed">
-        <thead> 
-          <tr> 
+        <thead>
+          <tr>
             <th class="text-center" style="vertical-align:middle" rowspan="2">MODULOS</th>
             <th class="text-center" style="vertical-align:middle" rowspan="2">ÁREAS</th>
             <th class="text-center" colspan="4">AÇÕES DO USUÁRIO</th>
           </tr>
-          <tr> 
+          <tr>
             <th class="text-center" style="width: 87px;">Criar</th>
             <th class="text-center" style="width: 87px;">Delete</th>
             <th class="text-center" style="width: 87px;">Visualizar</th>
             <th class="text-center" style="width: 87px;">Editar</th>
           </tr>
-        </thead> 
+        </thead>
         <tbody>
           @foreach($permissaos as $p)
           @can('config_perfil_read', $p)

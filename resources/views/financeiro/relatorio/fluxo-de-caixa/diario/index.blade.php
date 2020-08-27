@@ -19,7 +19,7 @@
   }
 
   #btn-movimento-tools .active{
-    color: #8BC34A;
+    color: #ddbd6f;
   }
 
 
@@ -45,10 +45,10 @@
   }
 
   #nav-calendar > li.active > a, .mdi-checkbox-marked-outline {
-    color: #8BC34A;
+    color: #ddbd6f;
   }
   li.active .nav-calendar-top{
-    background-color: #8BC34A;
+    background-color: #ddbd6f;
   }
 
   #nav-calendar {
@@ -67,7 +67,7 @@
 
   #grid-table-header {
     border: 1px solid #eeeeee;
-    border-bottom: 1px solid #8BC34A;
+    border-bottom: 1px solid #ddbd6f;
   }
 
   #btn-tools {
@@ -103,8 +103,8 @@
 
 
 
-    @page { 
-      margin: 1cm; 
+    @page {
+      margin: 1cm;
     }
 
     a[href]:after {
@@ -143,7 +143,7 @@
 
 
    #movimento-header{
-    border-bottom: 1px solid #8BC34A;
+    border-bottom: 1px solid #ddbd6f;
   }
 
   .bootstrap-datetimepicker-widget table td span.decade {
@@ -166,7 +166,7 @@
   }
 
   .table-condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th {
-   padding: 0px; 
+   padding: 0px;
   }
 
   .bootstrap-datetimepicker-widget table td span.active {
@@ -183,8 +183,8 @@
   #movimento-filtro:before, #movimento-filtro:after {
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-bottom: 7px solid #8BC34A;
-    border-bottom-color: #8BC34A;
+    border-bottom: 7px solid #ddbd6f;
+    border-bottom-color: #ddbd6f;
     top: -7px;
     left: auto;
     right: 23px;
@@ -213,8 +213,8 @@
 
   .ftipo.active, .ftipo:active, .ftipo:active:focus, .ftipo:active.focus, .ftipo.active:hover, .ftipo.active:focus {
     color: #ffffff;
-    background-color: #8BC34A;
-    border-color: #8BC34A;
+    background-color: #ddbd6f;
+    border-color: #ddbd6f;
   }
 
   #movimento-filtro label {
@@ -268,7 +268,7 @@
   }
 
   .btn-block+.btn-block {
-    margin-top: 0px; 
+    margin-top: 0px;
   }
 
   #intervalo .form-group {
@@ -280,7 +280,7 @@
     font-weight: 200;
     padding: 4px 5px;
     text-align: center;
-    border-left: 1px solid #8BC34A;
+    border-left: 1px solid #ddbd6f;
     font-family: 'Roboto', sans-serif;
   }
 
@@ -320,7 +320,7 @@
   #div-list{
     overflow: hidden;
     position: relative;
-    border: 1px solid #8BC34A;
+    border: 1px solid #ddbd6f;
     background-color: #fff;
     margin-top: -2px;
   }
@@ -343,7 +343,7 @@
       border-radius: 0px;
       -webkit-transition: height 1s, width 1s, border-radius 1s;
       transition: height 1s, width 1s, border-radius 1s;
-      
+
     }
 
     .spotlight-lens:after {
@@ -362,7 +362,7 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1 id="title" class="hidden-xs">{{ $title }} <div class="visible-print-inline"></div></h1> 
+  <h1 id="title" class="hidden-xs">{{ $title }} <div class="visible-print-inline"></div></h1>
   <div class="input-group pull-right hidden-print" id="btn-tools">
     <div class="input-group-btn">
       @can('fin_movimento_read')
@@ -404,7 +404,7 @@
         </a>
       </div>
       <div class="input-group pull-right" id="btn-movimento-tools">
-        <div class="input-group-btn">          
+        <div class="input-group-btn">
           <a href="#" id="btn-grafico" style="margin-right: 5px;"><i class="mdi mdi-trending-up mdi-30px"></i></a>
         </div>
         <div class="input-group-btn">
@@ -434,7 +434,7 @@
       </div>
     </div>
     <div class="col-xs-12 no-padding hidden-print" id="movimento-filtro">
-      <div class="col-xs-2" style="border-left: 1px solid #8BC34A; height: 100%">
+      <div class="col-xs-2" style="border-left: 1px solid #ddbd6f; height: 100%">
         <h3>Contas</h3>
         <label for="conta">Contas</label>
         <ul class="ul-conta" id="conta">
@@ -444,11 +444,11 @@
           @endforeach
         </ul>
       </div>
-      <div class="col-xs-3" id="filtro-mes" style="border-left: 1px solid #8BC34A; height: 100%;">
+      <div class="col-xs-3" id="filtro-mes" style="border-left: 1px solid #ddbd6f; height: 100%;">
         <h3>Meses</h3>
         <div id="datetimepicker" style="width: 288px;padding: 11px;border: 1px solid #ccc;"></div>
       </div>
-      <div class="col-xs-4 hidden" id="filtro-info" style="border-left: 1px solid #8BC34A; height: 100%;">
+      <div class="col-xs-4 hidden" id="filtro-info" style="border-left: 1px solid #ddbd6f; height: 100%;">
       </div>
     </div>
     <div class="col-sm-12 col-xs-12 no-padding" id="div-list">
@@ -544,7 +544,7 @@
           type: "GET",
           success: function(data){
             console.log(data);
-          }, 
+          },
           error: function(data){
             console.log(data);
           }

@@ -129,7 +129,7 @@ label span {
 
 .tab-content {
   height: 100%;
-  border: 1px solid #8BC34A;
+  border: 1px solid #ddbd6f;
   background-color: #fff;
   padding: 0;
 }
@@ -217,7 +217,7 @@ label span {
 }
 
 .grid-table a:hover {
-  color: #8BC34A;
+  color: #ddbd6f;
 }
 
 #ContaCorrente div.title {
@@ -268,7 +268,7 @@ label span {
         }
         .tab-content{
           border: 0;
-          border-top: 1px solid #8BC34A
+          border-top: 1px solid #ddbd6f
         }
       }
     </style>

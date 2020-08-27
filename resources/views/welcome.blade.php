@@ -105,7 +105,7 @@
       </div>
     </div>
   </section>
-  <div class="block block-pd-lg block-bg-overlay text-center" data-bg-img="img/parallax-bg.jpg" style="background-color: #8BC34A">
+  <div class="block block-pd-lg block-bg-overlay text-center" data-bg-img="img/parallax-bg.jpg" style="background-color: #ddbd6f">
     <h2>Controle sua empresa sem complicação</h2>
     <p>Sistema de gestão online feito para organizar sua empresa e dar mais tempo para você</p>
     <img alt="" class="gadgets-img hidden-md-down" src="{{ asset('img/gadgets.png') }}" style="width: 500px;">

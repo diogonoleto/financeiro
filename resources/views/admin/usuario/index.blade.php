@@ -66,7 +66,7 @@
     <div id="grid-table-body">
     </div>
   </div>
-  <div class="col-sm-4 col-xs-12 hidden" style="height: 100%; padding: 30px; border-left: 1px solid #8bc34a;" id="usuario-create" >
+  <div class="col-sm-4 col-xs-12 hidden" style="height: 100%; padding: 30px; border-left: 1px solid #ddbd6f;" id="usuario-create" >
   </div>
 
   <form id="delete-form" action="" method="POST" style="display: none;">

@@ -19,7 +19,7 @@
 }
 
 #btn-movimento-tools .active{
-  color: #8BC34A;
+  color: #ddbd6f;
 }
 
 #nav-calendar li {
@@ -44,10 +44,10 @@
 }
 
 #nav-calendar > li.active > a, .mdi-checkbox-marked-outline {
-  color: #8BC34A;
+  color: #ddbd6f;
 }
 li.active .nav-calendar-top{
-  background-color: #8BC34A;
+  background-color: #ddbd6f;
 }
 
 #nav-calendar {
@@ -88,7 +88,7 @@ li.active .nav-calendar-top{
 #div-list{
   overflow: hidden;
   position: relative;
-  border: 1px solid #8BC34A;
+  border: 1px solid #ddbd6f;
   background-color: #fff;
   margin-top: -2px;
 }
@@ -103,19 +103,19 @@ canvas{
   background-color: #fff;
   border: 0;
   padding: 7px 10px;
-  border-bottom: 1px solid #8bc34a;
-  border-right: 1px solid #8bc34a;
+  border-bottom: 1px solid #ddbd6f;
+  border-right: 1px solid #ddbd6f;
 }
 
 .col-xs-3 .subcategoria {
     padding-left: 35px!important;
 }
 .rmcateg, .rmcategdiv {
-  background-color: rgba(226, 255, 203, 0.38);
+  background-color: #e3d8bd1c;
   font-weight: 500;
   padding: 7px 5px 7px 12px;
-  border-bottom: 1px solid #8bc34a;
-  border-right: 1px solid #8bc34a;
+  border-bottom: 1px solid #ddbd6f;
+  border-right: 1px solid #ddbd6f;
 }
 
 .col-xs-1 .rmcateg,.col-xs-1 .rmcategdiv, .col-xs-1 .tot, .col-xs-1 .subcategoria  {
@@ -128,25 +128,25 @@ canvas{
   text-overflow: ellipsis;
 }
 .tot {
-  background-color: #e2ffcb;
+  background-color: #f2e2b9;
   font-weight: 600;
   padding: 10px 5px 10px 12px;
-  border-bottom: 1px solid #8bc34a;
-  border-right: 1px solid #8bc34a;
+  border-bottom: 1px solid #ddbd6f;
+  border-right: 1px solid #ddbd6f;
 }
 .metop {
-  background-color: #c6eaa9;
+  background-color: #ddbd6f40;
   text-align: center;
   font-weight: 600;
   padding: 10px 5px 10px 12px!important;
-  border-top: 1px solid #8bc34a;
-  border-bottom: 1px solid #8bc34a;
-  border-right: 1px solid #8bc34a;
+  border-top: 1px solid #ddbd6f;
+  border-bottom: 1px solid #ddbd6f;
+  border-right: 1px solid #ddbd6f;
   text-transform: uppercase;
 }
 
 #movimento-header{
-  border-bottom: 1px solid #8BC34A;
+  border-bottom: 1px solid #ddbd6f;
 }
 
 .bootstrap-datetimepicker-widget table td span.decade {
@@ -169,7 +169,7 @@ canvas{
 }
 
 .table-condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th {
- padding: 0px; 
+ padding: 0px;
 }
 
 .bootstrap-datetimepicker-widget table td span.active {
@@ -186,8 +186,8 @@ canvas{
 #movimento-filtro:before, #movimento-filtro:after {
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 7px solid #8BC34A;
-  border-bottom-color: #8BC34A;
+  border-bottom: 7px solid #ddbd6f;
+  border-bottom-color: #ddbd6f;
   top: -7px;
   left: auto;
   right: 23px;
@@ -216,8 +216,8 @@ canvas{
 
 .lancamento.active, .lancamento:active, .lancamento:active:focus, .lancamento:active.focus, .lancamento.active:hover, .lancamento.active:focus, .ftipo.active, .ftipo:active, .ftipo:active:focus, .ftipo:active.focus, .ftipo.active:hover, .ftipo.active:focus {
   color: #ffffff;
-  background-color: #8BC34A;
-  border-color: #8BC34A;
+  background-color: #ddbd6f;
+  border-color: #ddbd6f;
 }
 
 
@@ -258,7 +258,7 @@ canvas{
 }
 
 .btn-block+.btn-block {
-  margin-top: 0px; 
+  margin-top: 0px;
 }
 
 #filtro-info {
@@ -266,7 +266,7 @@ canvas{
   font-weight: 200;
   padding: 4px 5px;
   text-align: center;
-  border-left: 1px solid #8BC34A;
+  border-left: 1px solid #ddbd6f;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -330,8 +330,8 @@ canvas{
     height:100%!important;
     width: 100%!important;
   }
-  @page { 
-    margin: 0.5cm; 
+  @page {
+    margin: 0.5cm;
     size: auto;
   }
   a[href]:after {
@@ -362,7 +362,7 @@ canvas{
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1 class="hidden-xs">{{ $title }}</h1> 
+  <h1 class="hidden-xs">{{ $title }}</h1>
   <div class="input-group pull-right hidden-print" id="btn-tools">
     <div class="input-group-btn">
       @can('fin_movimento_read')
@@ -404,7 +404,7 @@ canvas{
         </a>
       </div>
       <div class="input-group pull-right hidden-print" id="btn-movimento-tools">
-        <div class="input-group-btn">          
+        <div class="input-group-btn">
           <a href="#" id="btn-print" style="margin-right: 5px;"><i class="mdi mdi-printer mdi-30px"></i></a>
         </div>
         <ul id="nav-calendar">
@@ -440,7 +440,7 @@ canvas{
           <a href="#" rel="npagos" class="btn btn-default btn-block lancamento" style="padding: 9px 12px; margin-bottom: 5px;">Realizado</a>
         </div>
       </div> -->
-      <div class="col-xs-2" style="border-left: 1px solid #8BC34A; height: 100%">
+      <div class="col-xs-2" style="border-left: 1px solid #ddbd6f; height: 100%">
         <h3>Contas</h3>
         <label for="conta">Contas</label>
         <ul class="ul-conta" id="conta">
@@ -450,11 +450,11 @@ canvas{
           @endforeach
         </ul>
       </div>
-      <div class="col-xs-3" id="filtro-ano" style="border-left: 1px solid #8BC34A; height: 100%;">
+      <div class="col-xs-3" id="filtro-ano" style="border-left: 1px solid #ddbd6f; height: 100%;">
         <h3>Ano</h3>
         <div id="datetimepicker" style="width: 288px;padding: 11px;border: 1px solid #ccc;"></div>
       </div>
-      <div class="col-xs-4 hidden" id="filtro-info" style="border-left: 1px solid #8BC34A; height: 100%;">
+      <div class="col-xs-4 hidden" id="filtro-info" style="border-left: 1px solid #ddbd6f; height: 100%;">
       </div>
     </div>
     <div class="col-sm-12 col-xs-12 no-padding" id="div-list" >

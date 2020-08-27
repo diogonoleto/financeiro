@@ -11,7 +11,7 @@
 		</div>
 		<div class="col-sm-9">
 			<form method="post" id="empresaEditForm" action="{{ route('empresa.update', $item->id) }}" class="hidden">
-				{{ method_field('put') }} 
+				{{ method_field('put') }}
 				{{ csrf_field() }}
 				<div class="col-sm-12 no-padding">
 					<div class="form-group">
@@ -71,7 +71,7 @@
 	<div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
 		@foreach($item->contatos as $c)
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding text-center"><i class="mdi mdi-24px {{ $c->tipo_contato == 1 ? 'mdi-email' : ($c->tipo_contato == 2 ? 'mdi-phone' : 'mdi-script') }}" style="color:#8BC34A;"></i></div>
+			<div class="col-xs-1 no-padding text-center"><i class="mdi mdi-24px {{ $c->tipo_contato == 1 ? 'mdi-email' : ($c->tipo_contato == 2 ? 'mdi-phone' : 'mdi-script') }}" style="color:#ddbd6f;"></i></div>
 			<div class="col-xs-9">{{ $c->descricao }}</div>
 			<div class="col-xs-2 no-padding text-right">
 				<a href="#" class="btn-contato-edit" route="{{ route('empresa.getContato', $c->id) }}" ><i class="mdi mdi-pencil mdi-24px"></i></a>
@@ -90,7 +90,7 @@
 	<div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
 		@foreach($item->enderecos as $e)
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding text-center"><i class="mdi mdi-map-marker mdi-24px" style="color:#8BC34A;"></i></div>
+			<div class="col-xs-1 no-padding text-center"><i class="mdi mdi-map-marker mdi-24px" style="color:#ddbd6f;"></i></div>
 			<div class="col-xs-9">{{ $e->logradouro }}, {{ $e->numero }} {{ $e->bairro }}  {{ $e->cidade }} {{ $e->cep }}</div>
 			<div class="col-xs-2 no-padding text-right">
 				<a href="#" class="btn-endereco-edit" route="{{ route('empresa.getEndereco', $e->id) }}"><i class="mdi mdi-pencil mdi-24px"></i></a>
@@ -109,7 +109,7 @@
 	<div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
 		@foreach($item->contas as $co)
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding text-center"><i class="mdi mdi-bank mdi-24px" style="color:#8BC34A;"></i></div>
+			<div class="col-xs-1 no-padding text-center"><i class="mdi mdi-bank mdi-24px" style="color:#ddbd6f;"></i></div>
 			<div class="col-xs-9">{{ $co->codigo }} | {{ $co->agencia }} | {{ $co->conta }}</div>
 			<div class="col-xs-2 no-padding text-right">
 				<a href="#" class="btn-conta-edit" principal="{{ $co->principal }}" conta_id="{{ $co->id }}" tipo_conta="{{ $co->tipo_conta }}" banco_id="{{ $co->banco_id }}" agencia="{{ $co->agencia }}" conta="{{ $co->conta }}"><i class="mdi mdi-pencil mdi-24px"></i></a>
@@ -128,97 +128,97 @@
 	<div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);margin-bottom: 10px;">
 		@if(isset($item->maisInfo->data_fundacao))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding text-center"><i class="mdi mdi-cake-variant mdi-24px" style="color:#8BC34A;"></i></div>
+			<div class="col-xs-1 no-padding text-center"><i class="mdi mdi-cake-variant mdi-24px" style="color:#ddbd6f;"></i></div>
 			<div class="col-xs-11">{{ $item->maisInfo->data_fundacao }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->rg))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">RG</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">RG</div>
 			<div class="col-xs-11">{{ $item->maisInfo->rg }} {{ $item->maisInfo->oerg }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->cnh))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">CNH</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">CNH</div>
 			<div class="col-xs-11">{{ $item->maisInfo->cnh }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->crea))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">CREA</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">CREA</div>
 			<div class="col-xs-11">{{ $item->maisInfo->crea }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->crm))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">CRM</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">CRM</div>
 			<div class="col-xs-11">{{ $item->maisInfo->crm }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->cro))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">CRO</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">CRO</div>
 			<div class="col-xs-11">{{ $item->maisInfo->cro }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->oab))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">OAB</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">OAB</div>
 			<div class="col-xs-11">{{ $item->maisInfo->oab }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->suframa))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 18px;">Sufr</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 18px;">Sufr</div>
 			<div class="col-xs-11">{{ $item->maisInfo->suframa }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->inscricao_municipal))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 18px;">IM</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 18px;">IM</div>
 			<div class="col-xs-11">{{ $item->maisInfo->inscricao_municipal }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->inscricao_estadual))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 18px;">IE</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 18px;">IE</div>
 			<div class="col-xs-11">{{ $item->maisInfo->inscricao_estadual }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->profissao))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 18px;">Prof</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 18px;">Prof</div>
 			<div class="col-xs-11">{{ $item->maisInfo->profissao }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->nome_mae))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 18px;">Mãe</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 18px;">Mãe</div>
 			<div class="col-xs-11">{{ $item->maisInfo->nome_mae }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->nome_pai))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 18px;">Pai</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 18px;">Pai</div>
 			<div class="col-xs-11">{{ $item->maisInfo->nome_pai }}</div>
 		</div>
 		@endif
 		@if(isset($item->maisInfo->estado_civil))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding" style="color:#8BC34A; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">EsCi</div>
+			<div class="col-xs-1 no-padding" style="color:#ddbd6f; font-weight: 600; text-align: center;font-size: 15px; letter-spacing: -2px;">EsCi</div>
 			<div class="col-xs-11">
 				{{ $item->maisInfo->estado_civil == 1 ? 'Solteiro(a)' :
 				$item->maisInfo->estado_civil == 2 ? 'Casado(a)' :
-				$item->maisInfo->estado_civil == 3 ? 'Divorciado(a)' : 
-				$item->maisInfo->estado_civil == 4 ? 'Viúvo(a)' : 
+				$item->maisInfo->estado_civil == 3 ? 'Divorciado(a)' :
+				$item->maisInfo->estado_civil == 4 ? 'Viúvo(a)' :
 				$item->maisInfo->estado_civil == 5 ? 'Separado(a)' : null}}
 			</div>
 		</div>
-		@endif	
+		@endif
 		@if(isset($item->maisInfo->sexo))
 		<div class="col-xs-12 cinfo no-padding">
-			<div class="col-xs-1 no-padding text-center"><i class="mdi {{ $item->maisInfo->sexo == 1 ? 'mdi-gender-male' : 'mdi-gender-female' }} mdi-24px" style="color:#8BC34A;"></i></div>
+			<div class="col-xs-1 no-padding text-center"><i class="mdi {{ $item->maisInfo->sexo == 1 ? 'mdi-gender-male' : 'mdi-gender-female' }} mdi-24px" style="color:#ddbd6f;"></i></div>
 			<div class="col-xs-11">{{ $item->maisInfo->sexo == 1 ? 'Masculino' : 'Feminino' }}</div>
 		</div>
 		@endif

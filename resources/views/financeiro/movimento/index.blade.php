@@ -101,10 +101,10 @@
         {{ csrf_field() }}
         <div class="mf hidden" id="mf-pesquisa">
           <div style="display: inline-block; margin-top: 3px;">
-            <div style="padding: 4px 5px; border: 1px solid #8BC34A; background-color: #8BC34A; color: #fff">Pesquisar:</div>
+            <div style="padding: 4px 5px; border: 1px solid #ddbd6f; background-color: #ddbd6f; color: #fff">Pesquisar:</div>
           </div>
           <div style="display: inline-block; width: 200px;" id="div-pesquisa">
-            <input type="text" name="pesquisa" id="pesquisa" class="form-control" style="font-size: 12px; margin-top: 3px;height: 27px;background-color: #9adc4f; color: #fff; border: 1px solid #8BC34A;">
+            <input type="text" name="pesquisa" id="pesquisa" class="form-control" style="font-size: 12px; margin-top: 3px;height: 27px;background-color: #b79d5f; color: #fff; border: 1px solid #ddbd6f;">
           </div>
           <div class="mf-remove">
             <div>
@@ -114,7 +114,7 @@
         </div>
         <div class="mf hidden" id="mf-lanc">
           <div style="display: inline-block; margin-top: 3px;">
-            <div style="padding: 4px 5px; border: 1px solid #8BC34A; background-color: #8BC34A; color: #fff">Lançamentos:</div>
+            <div style="padding: 4px 5px; border: 1px solid #ddbd6f; background-color: #ddbd6f; color: #fff">Lançamentos:</div>
           </div>
           <div style="display: inline-block; width: 105px;">
             <ul class="ul" style="width: 105px;" id="flancamento">
@@ -132,7 +132,7 @@
         </div>
         <div class="mf hidden" id="mf-tipo">
           <div style="display: inline-block; margin-top: 3px;">
-            <div style="padding: 4px 5px; border: 1px solid #8BC34A; background-color: #8BC34A; color: #fff">Tipo:</div>
+            <div style="padding: 4px 5px; border: 1px solid #ddbd6f; background-color: #ddbd6f; color: #fff">Tipo:</div>
           </div>
           <div style="display: inline-block; width: 90px; ">
             <ul class="ul" style="width: 90px;" id="ftipo">
@@ -150,7 +150,7 @@
         </div>
         <div class="mf hidden" id="mf-regime">
           <div style="display: inline-block; margin-top: 3px;">
-            <div style="padding: 4px 5px; border: 1px solid #8BC34A; background-color: #8BC34A; color: #fff">Regime:</div>
+            <div style="padding: 4px 5px; border: 1px solid #ddbd6f; background-color: #ddbd6f; color: #fff">Regime:</div>
           </div>
           <div style="display: inline-block; width: 120px; ">
             <ul class="ul" style="width: 120px;" id="fregime">
@@ -168,7 +168,7 @@
         </div>
         <div class="mf hidden" id="mf-conta">
           <div style="display: inline-block; margin-top: 3px;">
-            <div style="padding: 4px 5px; border: 1px solid #8BC34A; background-color: #8BC34A; color: #fff">Contas:</div>
+            <div style="padding: 4px 5px; border: 1px solid #ddbd6f; background-color: #ddbd6f; color: #fff">Contas:</div>
           </div>
           <div style="display: inline-block; width: 250px;" id="div-conta">
             <ul class="ul ul-conta scrollbar-inner" style="max-width: 250px; min-width: 250px;" id="fconta">
@@ -216,13 +216,13 @@
             </ul>
             <input type="hidden" name="data" id="data" value="fdem">
           </div>
-          <div id="pees" class="hidden" style="display: inline-block; margin-top: 3px; background-color: #8BC34A;">
+          <div id="pees" class="hidden" style="display: inline-block; margin-top: 3px; background-color: #ddbd6f;">
             <div style="display: inline-block; padding: 0;">
-              <input type="text" class="form-control text-center" name="data_inicio" id="data_inicio" maxlength="10" required style="font-size: 12px; width: 100px;height: 27px;background-color: #9adc4f;color: #fff;border: 1px solid #8BC34A;">
+              <input type="text" class="form-control text-center" name="data_inicio" id="data_inicio" maxlength="10" required style="font-size: 12px; width: 100px;height: 27px;background-color: #b79d5f;color: #fff;border: 1px solid #ddbd6f;">
             </div>
             <div style="display: inline-block;  color: #fff">à</div>
             <div style="display: inline-block; padding: 0;">
-              <input type="text" class="form-control text-center" name="data_fim" id="data_fim" maxlength="10" required style="font-size: 12px; width: 100px;height: 27px;background-color: #9adc4f;color: #fff;border: 1px solid #8BC34A;">
+              <input type="text" class="form-control text-center" name="data_fim" id="data_fim" maxlength="10" required style="font-size: 12px; width: 100px;height: 27px;background-color: #b79d5f;color: #fff;border: 1px solid #ddbd6f;">
             </div>
           </div>
           <div class="mf-remove">
@@ -234,10 +234,10 @@
 
         <div class="mf hidden" id="mf-fornecedor">
           <div style="display: inline-block; margin-top: 3px;">
-            <div style="padding: 4px 5px; border: 1px solid #8BC34A; background-color: #8BC34A; color: #fff" id="labforn"></div>
+            <div style="padding: 4px 5px; border: 1px solid #ddbd6f; background-color: #ddbd6f; color: #fff" id="labforn"></div>
           </div>
           <div style="display: inline-block; width: 200px;" id="div-fornecedor">
-            <input type="text" name="input-fornecedor" id="input-fornecedor" class="form-control" style="font-size: 12px; margin-top: 3px;height: 27px;background-color: #9adc4f; color: #fff; border: 1px solid #8BC34A;">
+            <input type="text" name="input-fornecedor" id="input-fornecedor" class="form-control" style="font-size: 12px; margin-top: 3px;height: 27px;background-color: #b79d5f; color: #fff; border: 1px solid #ddbd6f;">
             <input type="hidden" name="ffornecedor_id" id="ffornecedor_id">
             <ul class="ul ul-ffornecedor scrollbar-inner" style="max-width: 200px!important; min-width: 200px!important; max-height: 200px; margin-top: -1px;" id="ffornecedor">
               @foreach($fornecedors as $i)
@@ -260,10 +260,10 @@
         </div>
         <div class="mf hidden" id="mf-categoria">
           <div style="display: inline-block; margin-top: 3px;">
-            <div style="padding: 4px 5px; border: 1px solid #8BC34A; background-color: #8BC34A; color: #fff">Categorias:</div>
+            <div style="padding: 4px 5px; border: 1px solid #ddbd6f; background-color: #ddbd6f; color: #fff">Categorias:</div>
           </div>
           <div style="display: inline-block; width: 250px;" id="div-categoria">
-            <input type="text" name="input-categoria" id="input-categoria" class="form-control" style="font-size: 12px; margin-top: 3px;height: 27px;background-color: #9adc4f; color: #fff; border: 1px solid #8BC34A;">
+            <input type="text" name="input-categoria" id="input-categoria" class="form-control" style="font-size: 12px; margin-top: 3px;height: 27px;background-color: #b79d5f; color: #fff; border: 1px solid #ddbd6f;">
             <input type="hidden" name="fcategoria_id" id="fcategoria_id">
             <ul class="ul ul-fcategoria scrollbar-inner" style="max-width: 250px!important; min-width: 250px!important; max-height: 200px; margin-top: -1px;" id="fcategoria">
               @foreach($categorias as $i)
@@ -283,10 +283,10 @@
         </div>
         <div class="mf hidden" id="mf-centrocusto">
           <div style="display: inline-block; margin-top: 3px;">
-            <div style="padding: 4px 5px; border: 1px solid #8BC34A; background-color: #8BC34A; color: #fff">Centro de Custo:</div>
+            <div style="padding: 4px 5px; border: 1px solid #ddbd6f; background-color: #ddbd6f; color: #fff">Centro de Custo:</div>
           </div>
           <div style="display: inline-block; width: 200px;" id="div-centrocusto">
-            <input type="text" name="input-centrocusto" id="input-centrocusto" class="form-control" style="font-size: 12px; margin-top: 3px;height: 27px;background-color: #9adc4f; color: #fff; border: 1px solid #8BC34A;">
+            <input type="text" name="input-centrocusto" id="input-centrocusto" class="form-control" style="font-size: 12px; margin-top: 3px;height: 27px;background-color: #b79d5f; color: #fff; border: 1px solid #ddbd6f;">
             <input type="hidden" name="fcentrocusto_id" id="fcentrocusto_id">
             <ul class="ul ul-fcentrocusto scrollbar-inner" style="max-width: 200px!important; min-width: 200px!important; max-height: 200px; margin-top: -1px;" id="fcentrocusto">
               @foreach($centrocustos as $i)
@@ -304,7 +304,7 @@
         </div>
         <div class="mf hidden" id="mf-pont">
           <div style="display: inline-block; margin-top: 3px;">
-            <div style="padding: 4px 5px; border: 1px solid #8BC34A; background-color: #8BC34A; color: #fff">Tipo ..:</div>
+            <div style="padding: 4px 5px; border: 1px solid #ddbd6f; background-color: #ddbd6f; color: #fff">Tipo ..:</div>
           </div>
           <div style="display: inline-block; width: 105px;">
             <ul class="ul" style="width: 105px;" id="fpontual">

@@ -443,7 +443,7 @@ ul.timeline li:after {
 
 
 ul.timeline li.Receita:before {
-  background-color: #8BC34A;
+  background-color: #ddbd6f;
 }
 
 ul.timeline li.Despesa:before {
@@ -548,19 +548,19 @@ canvas {
 <section class="content scrollbar-inner">
   @can('fin_conta_read')
   <div class="row" style="margin: 5px 10px 0">
-    <div class="col-xs-12 col-sm-12" style="border-bottom: 1px solid #8BC34A; position:relative;">
+    <div class="col-xs-12 col-sm-12" style="border-bottom: 1px solid #ddbd6f; position:relative;">
       <i class="mdi mdi-help-circle help-icon" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="left" title="" data-content="Aqui você pode alternar entre as contas que você está gerenciando e cadastrar novas contas (conta corrente, dinheiro, cartão de crédito, poupança, investimentos etc)." data-original-title="Contas"></i>
       <h4>Contas</h4>
       @php($ctot = 0)
       @forelse($contas as $c)
       @php($ctot += $c->valor)
-      <div class="col-xs-12 col-sm-6 col-md-2 no-padding" style="margin-bottom: 5px; {{ $c->padrao == 1 ? 'border-left: 2px solid #8BC34A' : null }}">
+      <div class="col-xs-12 col-sm-6 col-md-2 no-padding" style="margin-bottom: 5px; {{ $c->padrao == 1 ? 'border-left: 2px solid #ddbd6f' : null }}">
         <div class="col-xs-9 no-padding" style="border-left: 2px solid #eee;">
           <p style="margin-left: 10px; margin-right: 10px; text-align: right; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{ isset($c->descricao) ? $c->descricao : 0 }} - Saldo</p>
           <h3 class="text-right {{ $c->valor < 0 ? 'red' : 'green'}}"><span style="vertical-align: super; font-size: 11px; display: inline-flex;">R$</span>{{ isset($c->valor) ? number_format($c->valor, 2, ',', '.') : '0,00' }}</h3>
         </div>
         <div class="col-xs-3 dimgc">
-          <img src="{{ url($c->img) }}"  class="img-responsive img-thumbnail" style="{{ $c->padrao == 1 ? 'border: 2px solid #8BC34A' : null }}">
+          <img src="{{ url($c->img) }}"  class="img-responsive img-thumbnail" style="{{ $c->padrao == 1 ? 'border: 2px solid #ddbd6f' : null }}">
         </div>
       </div>
       @empty
@@ -592,7 +592,7 @@ canvas {
             <div class="row">
               <div class="col-sm-6 col-sm-6 col-xs-6 no-padding">
                 <div class="col-sm-12 text-center" style="height: 130px;">
-                  <input type="text" value="{{ $matu->RPrevisto != 0 ? number_format((($matu->RRealizado*100)/$matu->RPrevisto),2) : 0 }}" class="dial" readonly data-fgColor="#8bc34a" data-width="100" data-thickness=".2" >
+                  <input type="text" value="{{ $matu->RPrevisto != 0 ? number_format((($matu->RRealizado*100)/$matu->RPrevisto),2) : 0 }}" class="dial" readonly data-fgColor="#ddbd6f" data-width="100" data-thickness=".2" >
                 </div>
                 <div class="col-sm-12">
                   <h3>Recebimentos</h3>
@@ -605,7 +605,7 @@ canvas {
               </div>
               <div class="col-sm-6 col-sm-6 col-xs-6 no-padding">
                 <div class="col-sm-12 text-center" style="height: 130px;">
-                  <input type="text" value="{{ $matu->DPrevisto != 0 ?number_format((($matu->DRealizado*100)/$matu->DPrevisto),2) : 0 }}" class="dial" readonly data-fgColor="#8bc34a" data-width="100" data-thickness=".2" >
+                  <input type="text" value="{{ $matu->DPrevisto != 0 ?number_format((($matu->DRealizado*100)/$matu->DPrevisto),2) : 0 }}" class="dial" readonly data-fgColor="#ddbd6f" data-width="100" data-thickness=".2" >
                 </div>
                 <div class="col-sm-12">
                   <h3>Despesas</h3>
@@ -833,7 +833,7 @@ canvas {
         yAxes: [{
           stacked: false
         }]
-      }, 
+      },
       legend: {
         position: 'top',
         labels: {
@@ -948,7 +948,7 @@ canvas {
           type: "GET",
           success: function(data){
             console.log(data);
-          }, 
+          },
           error: function(data){
             console.log(data);
           }

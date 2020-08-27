@@ -29,7 +29,7 @@
   #grid-table-header {
     border: 1px solid #eeeeee;
     border-right: 0;
-    border-bottom: 1px solid #8BC34A;
+    border-bottom: 1px solid #ddbd6f;
   }
   #btn-tools {
     text-align: right;
@@ -55,7 +55,7 @@
   }
 
   #btn-perfil-tools .active{
-    color: #8BC34A;
+    color: #ddbd6f;
   }
   .form-group {
     margin-bottom: 15px;
@@ -71,7 +71,7 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1>{{ $title }}</h1> 
+  <h1>{{ $title }}</h1>
   <div class="input-group pull-right hidden-print " id="btn-tools">
     <div class="input-group-btn">
       <a href="#" class="btn-perfil-delete hidden"></a>

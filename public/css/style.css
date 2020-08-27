@@ -30,7 +30,7 @@
   ================================================== */
 
 
-  
+
   .btn {
     font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-weight: 500;
@@ -38,7 +38,7 @@
 
   .btn:hover {
     background-color: #fff;
-    color: #8BC34A;
+    color: #ddbd6f;
   }
 
 
@@ -49,7 +49,7 @@
 
   .btn-ghost:hover {
     background-color: #fff;
-    color: #8BC34A;
+    color: #ddbd6f;
   }
 
   .btn-outline-white {
@@ -75,7 +75,7 @@
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: #8BC34A;
+    background: #ddbd6f;
     color: #fff;
     text-align: center;
     font-size: 24px;
@@ -164,7 +164,7 @@
   #header {
     background: #fff;
     height: 70px;
-    border-bottom: 1px solid #8BC34A;
+    border-bottom: 1px solid #ddbd6f;
   }
 
   #header #logo {
@@ -292,7 +292,7 @@
 }
 
 .nav-menu a:hover, .nav-menu li:hover > a, .nav-menu .menu-active > a {
-  color: #8BC34A;
+  color: #ddbd6f;
 }
 
 .nav-menu ul {
@@ -311,7 +311,7 @@
 }
 
 .nav-menu ul li:hover {
-  background: #8BC34A;
+  background: #ddbd6f;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -352,7 +352,7 @@
 }
 
 #mobile-nav-toggle i {
-  color: #8BC34A;
+  color: #ddbd6f;
 }
 
   #btn-login{
@@ -427,11 +427,11 @@
 }
 
 #mobile-nav ul .menu-has-children i.fa-chevron-up {
-  color: #8BC34A;
+  color: #ddbd6f;
 }
 
 #mobile-nav ul .menu-item-active {
-  color: #8BC34A;
+  color: #ddbd6f;
 }
 
 #mobile-body-overly {
@@ -472,7 +472,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-family: "Raleway", Helvetica, Arial, sans-serif;
     font-weight: 500;
     color: #666;
-    border: 6px solid #8BC34A;
+    border: 6px solid #ddbd6f;
     border-radius: 50%;
     padding: 55px 25px 0 25px;
     position: relative;
@@ -521,7 +521,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   .precos h2, .about h2 {
-    color: #8BC34A;
+    color: #ddbd6f;
   }
 
   .preco-col {
@@ -542,7 +542,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     width: 70px;
     height: 70px;
     margin-bottom: 15px;
-    background: #8BC34A;
+    background: #ddbd6f;
     color: #fff;
     font-size: 24px;
     text-align: center;
@@ -552,7 +552,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   .preco-col h3 {
-    color: #8BC34A;
+    color: #ddbd6f;
   }
 
   .preco-col p {
@@ -565,7 +565,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   Call-to-action Styling
   ================================================== */
   .cta {
-    background-color: #8BC34A;
+    background-color: #ddbd6f;
     padding: 25px 0;
   }
 
@@ -598,12 +598,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 
   #contact h2 {
     font-family: "Raleway", Helvetica, Arial, sans-serif;
-    color: #8BC34A;
+    color: #ddbd6f;
   }
 
   #contact .info i {
     font-size: 32px;
-    color: #8BC34A;
+    color: #ddbd6f;
     float: left;
   }
 
@@ -613,8 +613,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   #contact .form #sendmessage {
-    color: #8BC34A;
-    border: 1px solid #8BC34A;
+    color: #ddbd6f;
+    border: 1px solid #ddbd6f;
     display: none;
     text-align: center;
     padding: 15px;
@@ -651,7 +651,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   #contact .form button[type="submit"] {
-    background: #8BC34A;
+    background: #ddbd6f;
     border: 0;
     padding: 10px 24px;
     color: #fff;
@@ -718,7 +718,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   .site-footer .bottom .list-inline a:hover {
-    color: #8BC34A;
+    color: #ddbd6f;
   }
 
   .site-footer .credits {
@@ -726,7 +726,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   .site-footer .credits a {
-    color: #8BC34A;
+    color: #ddbd6f;
   }
 
 /* ==================================================
@@ -794,7 +794,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     .btn-login {
       margin: 5px!important;
     }
-        
+
   }
 
   @media (max-width: 767px) {

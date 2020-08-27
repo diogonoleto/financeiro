@@ -98,10 +98,10 @@ legend {
 }
 
 #nav-calendar > li.active > a, .mdi-checkbox-marked-outline {
-  color: #8BC34A;
+  color: #ddbd6f;
 }
 li.active .nav-calendar-top{
-  background-color: #8BC34A;
+  background-color: #ddbd6f;
 }
 
 #nav-calendar {
@@ -180,7 +180,7 @@ li.active .nav-calendar-top{
 }
 
 #btn-movimento-tools .active{
-  color: #8BC34A;
+  color: #ddbd6f;
 }
 
 .form-group {
@@ -356,7 +356,7 @@ li.active .nav-calendar-top{
 }
 
 #categoria-nova {
-  border: 1px solid #8BC34A;
+  border: 1px solid #ddbd6f;
   margin-top: 5px;
   background-color: #fff;
   position: fixed;
@@ -371,7 +371,7 @@ li.active .nav-calendar-top{
 }
 
 #fornecedor-nova {
-  border: 1px solid #8BC34A;
+  border: 1px solid #ddbd6f;
   margin-top: 0px;
   background-color: #fff;
   position: fixed;
@@ -386,7 +386,7 @@ li.active .nav-calendar-top{
 }
 
 #centro-custo-nova {
-  border: 1px solid #8BC34A;
+  border: 1px solid #ddbd6f;
   margin-top: 0px;
   background-color: #fff;
   position: fixed;
@@ -401,7 +401,7 @@ li.active .nav-calendar-top{
 }
 
 .active > svg > path#first-path {
-  fill: #8BC34A;
+  fill: #ddbd6f;
 }
 a > svg > path#first-path {
   fill: #ccc;
@@ -412,8 +412,8 @@ a:hover > svg > path#first-path{
 }
 
 #movimento-footer{
-  border-bottom: 1px solid #8BC34A;
-  border-top: 1px solid #8BC34A;
+  border-bottom: 1px solid #ddbd6f;
+  border-top: 1px solid #ddbd6f;
   position: fixed;
   bottom: 0;
   padding: 5px;
@@ -490,7 +490,7 @@ a:hover > svg > path#first-path{
 }
 
 #movimento-header{
-  border-bottom: 1px solid #8BC34A;
+  border-bottom: 1px solid #ddbd6f;
 }
 
 .bootstrap-datetimepicker-widget table td span.decade {

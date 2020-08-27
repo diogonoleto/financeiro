@@ -35,7 +35,7 @@
   </span>
   @endif
 </div>
-<div class="col-xs-12 hidden mchild mchild-{{ $i->id }}" style="border-top:1px solid #8BC34A; height: calc(100% - 43px);">
+<div class="col-xs-12 hidden mchild mchild-{{ $i->id }}" style="border-top:1px solid #ddbd6f; height: calc(100% - 43px);">
   <div class="col-xs-8" >
     <div class="row" style="background-color:#fff; padding-left: 10px; padding-right: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); margin-bottom: 10px; margin-top: 10px;">
       <h5 style="margin-top: 10px;margin-bottom: 7px;padding-bottom: 8px;border-bottom: 1px solid #eee;">DADOS PRINCIPAIS</h5>
@@ -151,12 +151,12 @@
         <span class="info">
           {{ $i->maisInfo->estado_civil == 1 ? 'Solteiro(a)' :
           $i->maisInfo->estado_civil == 2 ? 'Casado(a)' :
-          $i->maisInfo->estado_civil == 3 ? 'Divorciado(a)' : 
-          $i->maisInfo->estado_civil == 4 ? 'Viúvo(a)' : 
+          $i->maisInfo->estado_civil == 3 ? 'Divorciado(a)' :
+          $i->maisInfo->estado_civil == 4 ? 'Viúvo(a)' :
           $i->maisInfo->estado_civil == 5 ? 'Separado(a)' : null}}
         </span>
       </p>
-      @endif  
+      @endif
       @if(isset($i->maisInfo->sexo))
       <p>
         <span class="labe">Sexo:</span>
@@ -180,10 +180,10 @@
       @endforeach
       @foreach($i->contatos as $t)
       @if($t->tipo_contato == 2)
-      <p>  
+      <p>
         <span class="labe" style="width: 65px">Telefone:</span>
         <span class="info">{{ $t->descricao }}</span>
-      </p>  
+      </p>
       @endif
       @endforeach
       @foreach($i->contatos as $f)

@@ -13,7 +13,7 @@
 
 .div-impr{
   border: 0;height: 100%;
-  border-right: 1px solid #8BC34A!important;
+  border-right: 1px solid #ddbd6f!important;
   background-color: #eee
 }
 
@@ -139,14 +139,14 @@ margin-top: 0px;
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
     opacity: 1;
-  } 
+  }
 }
 
 .btn-contato-novo, .btn-endereco-novo, .btn-conta-nova{
   color: #E0E0E0;
 }
 .btn-contato-novo:hover, .btn-endereco-novo:hover, .btn-conta-nova:hover{
-  color: #8BC34A;
+  color: #ddbd6f;
 }
 
 .confirmation-buttons a {
@@ -162,7 +162,7 @@ margin-top: 0px;
 .cinfo .tooltip-inner{
   padding: 6px 10px;
   color: #fff;
-  background-color: #8BC34A;
+  background-color: #ddbd6f;
 }
 
 

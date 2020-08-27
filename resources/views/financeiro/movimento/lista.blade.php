@@ -81,7 +81,7 @@
     @endif
   </span>
 </div>
-<div class="col-xs-12 hidden mchild mchild-{{ $i->id }}" style="border-top:1px solid #8BC34A; height: calc(100% - 43px);">
+<div class="col-xs-12 hidden mchild mchild-{{ $i->id }}" style="border-top:1px solid #ddbd6f; height: calc(100% - 43px);">
   <div class="col-xs-6" >
     <h5 style="margin-top: 40px;margin-bottom: 20px;">INFORMAÇÃO DO PAGAMENTO</h5>
     <p>

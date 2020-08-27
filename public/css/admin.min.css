@@ -5,10 +5,10 @@ body,html{
 }
 
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .mchild p span.labe{
@@ -156,10 +156,10 @@ input[type="radio"] {
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: #8BC34A;
+  background-color: #ddbd6f;
 }
 .btn-delete {
-  background-color: #8BC34A;
+  background-color: #ddbd6f;
   color: #fff!important;
   position: absolute;
   top: 0px;
@@ -240,10 +240,10 @@ label {
 }
 
 .form-control:focus {
-  border-color: #8BC34A;
+  border-color: #ddbd6f;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #8BC34A;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 3px #8BC34A;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #ddbd6f;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 3px #ddbd6f;
 }
 
 a, a:hover, a:visited, a:active, a:focus {
@@ -646,8 +646,8 @@ nav.sidebar li a {
   }
 
   #mf-conta{
-    border-top: 1px solid #8BC34A;
-    border-bottom: 1px solid #8BC34A;
+    border-top: 1px solid #ddbd6f;
+    border-bottom: 1px solid #ddbd6f;
   }
   #movimento-filtro:before, #movimento-filtro:after {
     right: 185px!important;
@@ -889,7 +889,7 @@ padding: 0px 0;
 }
 
 #grid-table-header {
-  border: 1px solid #8BC34A;
+  border: 1px solid #ddbd6f;
   border-right: 0;
   border-left: 0;
 }
@@ -909,12 +909,12 @@ padding: 0px 0;
 }
 
 #grid-table-header > div > a:focus, #grid-table-header > div > a:hover  {
-  color:#8bc34a;
+  color:#ddbd6f;
 }
 
 
 .list > div:last-child{
-  padding: 0 8px; 
+  padding: 0 8px;
 }
 
 .list > div:nth-child(2) > div:nth-child(1), .list > div:nth-child(2) > div:nth-child(5)  {
@@ -1033,7 +1033,7 @@ text-shadow: none;
   left: 0;
   right: 0;
   height: 60px;
-  border-bottom: 1px solid #8BC34A;
+  border-bottom: 1px solid #ddbd6f;
   z-index: 1;
   background-color: #fff;
 }
@@ -1146,7 +1146,7 @@ text-shadow: none;
 .pagination>.active>span,
 .pagination>.active>span:focus,
 .pagination>.active>span:hover {
-  background-color: #8bc34a;
+  background-color: #ddbd6f;
   border-color: #c5e1a5;
 }
 
@@ -1291,7 +1291,7 @@ input[type="checkbox"]{
 }
 
 .checkbox:hover {
-  color: #8BC34A;
+  color: #ddbd6f;
 }
 
 #del-group {
@@ -1360,23 +1360,23 @@ input[type="checkbox"]{
 .tooltip-inner {
   padding: 8px 16px;
   color: #fff;
-  background-color: #8BC34A;
+  background-color: #ddbd6f;
 }
 
 .tooltip.top .tooltip-arrow {
-  border-top-color: #8BC34A!important;
+  border-top-color: #ddbd6f!important;
 }
 
 .tooltip.left .tooltip-arrow {
-  border-left-color: #8BC34A!important;
+  border-left-color: #ddbd6f!important;
 }
 
 .tooltip.right .tooltip-arrow {
-  border-right-color: #8BC34A!important;
+  border-right-color: #ddbd6f!important;
 }
 
 .tooltip.bottom .tooltip-arrow {
-  border-bottom-color: #8BC34A!important;
+  border-bottom-color: #ddbd6f!important;
 }
 
 .switch label{
@@ -1453,12 +1453,12 @@ input:checked + .slider:before {
 
 
 .ps__rail-y:hover > .ps__thumb-y, .ps__rail-y:focus > .ps__thumb-y {
-  background-color: #8bc34a!important;
+  background-color: #ddbd6f!important;
   opacity: 1!important;
 }
 
 .ps__thumb-y, .ps__thumb-x  {
-  background-color: #8bc34a!important;
+  background-color: #ddbd6f!important;
 }
 
 
@@ -1545,8 +1545,8 @@ input:checked + .slider:before {
 #div-crud {
   height: 100%;
   padding: 30px 20px;
-  border-left: 1px solid #8bc34a;
-  border-top: 1px solid #8bc34a;
+  border-left: 1px solid #ddbd6f;
+  border-top: 1px solid #ddbd6f;
 }
 
 .form-crud {
@@ -1558,7 +1558,7 @@ input:checked + .slider:before {
 }
 
 #div-crud > div {
-  border: 1px solid #8BC34A; background-color: #fff; padding: 0;
+  border: 1px solid #ddbd6f; background-color: #fff; padding: 0;
 }
 
 #div-crud div.title {
@@ -1568,7 +1568,7 @@ input:checked + .slider:before {
   font-size: 20px;
   font-weight: 100;
   background-color: #fff;
-  color: #8bc34a;
+  color: #ddbd6f;
 }
 
 .form-footer{

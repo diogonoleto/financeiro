@@ -34,7 +34,7 @@
 	#grid-table-header {
 		border: 1px solid #eeeeee;
 		border-right: 0;
-		border-bottom: 1px solid #8BC34A;
+		border-bottom: 1px solid #ddbd6f;
 	}
 
 	#btn-tools {
@@ -125,7 +125,7 @@
 			{{ csrf_field() }}
 		</form>
 	</div>
-	<div class="col-sm-4 col-xs-4 hidden" style="height: 100%; padding: 30px; border-left: 1px solid #8bc34a;" id="pdv-create" >
+	<div class="col-sm-4 col-xs-4 hidden" style="height: 100%; padding: 30px; border-left: 1px solid #ddbd6f;" id="pdv-create" >
 	</div>
 </section>
 <!-- /.content -->

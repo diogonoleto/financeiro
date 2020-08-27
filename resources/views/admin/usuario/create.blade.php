@@ -1,6 +1,6 @@
-<div class="col-xs-12 no-padding" style="border: 1px solid #8BC34A; background-color: #fff; overflow: auto;" id="usuario-novo">
+<div class="col-xs-12 no-padding" style="border: 1px solid #ddbd6f; background-color: #fff; overflow: auto;" id="usuario-novo">
 
-  <div style="position: fixed;margin-top: -15px;margin-left: 15px;z-index: 1;font-size: 20px;font-weight: 100;background-color: #fff;color: #8bc34a;">{{ isset($item->id) ? 'Editar ' : 'Novo ' }}Usuário</div>
+  <div style="position: fixed;margin-top: -15px;margin-left: 15px;z-index: 1;font-size: 20px;font-weight: 100;background-color: #fff;color: #ddbd6f;">{{ isset($item->id) ? 'Editar ' : 'Novo ' }}Usuário</div>
 
   <form class="form" style="margin-top: 20px" method="post" id="usuarioForm" @if(isset($item->id)) action="{{ route('usuario.update', $item->id) }}"> {!! method_field('put') !!} @else action="{{ route('usuario.store') }}"> @endif {!! csrf_field() !!}
 
@@ -117,7 +117,7 @@
       </div>
     </div>
 
-    
+
 
     <!-- <div class="col-md-12"> -->
       <!--       <h5 style="color: #999;">E-MAILS</h5>
@@ -171,7 +171,7 @@
       <div class="pull-right" style="margin-top: -50px;">
         <a href="#" class="btn btn-default btn-contato-create" style="padding: 2px 4px; line-height: 1;" route="{{ route('usuario.contato') }}" data-toggle="tooltip" title="Adicionar Telefone" data-placement="bottom"><i class="mdi mdi-plus" style="color: green;"></i></a>
       </div>
-      
+
       @-forelse($item->userContato as $k => $fone)
         if($fone->tipo == 'telefone')
           <div class="form-group">
