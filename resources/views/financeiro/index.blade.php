@@ -682,13 +682,7 @@ canvas {
                   </span>
                 </p>
                 <div class="progress">
-                  @if($mant->ADPrevisto > $matu->DPrevisto)
-                  <div class="progress-bar progress-bar-danger" style="width:{{ $mant->ADPrevisto == 0 ? '100' : (50 -(100 - number_format( (($matu->DPrevisto*100)/$mant->ADPrevisto), 2))*0.5) }}%;"></div>
-                  @elseif($mant->ADPrevisto < $matu->DPrevisto)
-                  <div class="progress-bar progress-bar-danger" style="width:{{ $mant->ADPrevisto == 0 ? '100' : (50 +(number_format( (($matu->DPrevisto*100)/$mant->ADPrevisto) - 100, 2))*0.5) }}%;"></div>
-                  @else
-                  <div class="progress-bar progress-bar-danger" style="width:0;"></div>
-                  @endif
+
                 </div>
                 <div class="indicator"></div>
               </li>
