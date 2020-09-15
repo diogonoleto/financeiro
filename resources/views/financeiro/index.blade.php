@@ -644,25 +644,11 @@ canvas {
                   <span class="uppercase">Recebimentos</span>
                   <span class="pull-right">
 
-                    @if($mant->ARPrevisto > $matu->RPrevisto)
-                    {{ $mant->ARPrevisto == 0 ? '100%' : number_format((($matu->RPrevisto*100)/$mant->ARPrevisto) - 100, 2) }}% (R$ {{ number_format($matu->RPrevisto-$mant->ARPrevisto,2,',','.')  }})
-                    <i class="mdi mdi-arrow-down-bold red"></i>
-                    @elseif($mant->ARPrevisto < $matu->RPrevisto)
-                    +{{ $mant->ARPrevisto == 0 ? '100%' : number_format((($matu->RPrevisto*100)/$mant->ARPrevisto) - 100, 2) }}% (R$ {{ number_format($matu->RPrevisto-$mant->ARPrevisto,2,',','.')  }})
-                    <i class="mdi mdi-arrow-up-bold green"></i>
-                    @elseif($mant->ARPrevisto - $matu->RPrevisto == '0')
-                    Sem alteração <i class="mdi mdi-arrow-left"></i>
-                    @endif
+
                   </span>
                 </p>
                 <div class="progress">
-                  @if($mant->ARPrevisto > $matu->RPrevisto)
-                  <div class="progress-bar progress-bar-success" style="width:{{ $mant->ARPrevisto == 0 ? '100' : (50 -(100 - number_format( (($matu->RPrevisto*100)/$mant->ARPrevisto), 2))*0.5) }}%;"></div>
-                  @elseif($mant->ARPrevisto < $matu->RPrevisto)
-                  <div class="progress-bar progress-bar-success" style="width:{{ $mant->ARPrevisto == 0 ? '100' : (50 +(number_format( (($matu->RPrevisto*100)/$mant->ARPrevisto) - 100, 2))*0.5) }}%;"></div>
-                  @else
-                  <div class="progress-bar progress-bar-success" style="width:0;"></div>
-                  @endif
+
                 </div>
                 <div class="indicator"></div>
               </li>
