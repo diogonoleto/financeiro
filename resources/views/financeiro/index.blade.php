@@ -659,11 +659,8 @@ canvas {
                   @if($mant->ARPrevisto > $matu->RPrevisto)
                   <div class="progress-bar progress-bar-success" style="width:{{ $mant->ARPrevisto == 0 ? '100' : (50 -(100 - number_format( (($matu->RPrevisto*100)/$mant->ARPrevisto), 2))*0.5) }}%;"></div>
                   @elseif($mant->ARPrevisto < $matu->RPrevisto)
-                  {{ $matu->RPrevisto }}
-                  {{ $mant->ARPrevisto }}
-
-
-                  <div class="progress-bar progress-bar-success" style="width:{{ $mant->ARPrevisto == 0 ? '100' : '' }}%;"></div>
+                  {{ (50 +( (($matu->RPrevisto*100)/$mant->ARPrevisto) - 100 )*0.5) }}
+                  <div class="progress-bar progress-bar-success" style="width:{{ $mant->ARPrevisto == 0 ? '100' : (50 +( (($matu->RPrevisto*100)/$mant->ARPrevisto) - 100)*0.5) }}%;"></div>
                   @else
                   <div class="progress-bar progress-bar-success" style="width:0;"></div>
                   @endif
