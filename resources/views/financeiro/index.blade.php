@@ -657,10 +657,9 @@ canvas {
                 </p>
                 <div class="progress">
                   @if($mant->ARPrevisto > $matu->RPrevisto)
-                  <div class="progress-bar progress-bar-success" style="width:{{ $mant->ARPrevisto == 0 ? '100' : (50 -(100 - number_format( (($matu->RPrevisto*100)/$mant->ARPrevisto), 2))*0.5) }}%;"></div>
+                  <div class="progress-bar progress-bar-success" style="width:{{ $mant->ARPrevisto == 0 ? '100' : (50 -(100 - (($matu->RPrevisto*100)/$mant->ARPrevisto))*0.5) }}%;"></div>
                   @elseif($mant->ARPrevisto < $matu->RPrevisto)
-                  {{ (50 +( (($matu->RPrevisto*100)/$mant->ARPrevisto) - 100 )*0.5) }}
-                  <div class="progress-bar progress-bar-success" style="width:{{ $mant->ARPrevisto == 0 ? '100' : (50 +( (($matu->RPrevisto*100)/$mant->ARPrevisto) - 100)*0.5) }}%;"></div>
+                  <div class="progress-bar progress-bar-success" style="width:{{ $mant->ARPrevisto == 0 ? '100' : (50 + ((($matu->RPrevisto*100)/$mant->ARPrevisto) - 100)*0.5) }}%;"></div>
                   @else
                   <div class="progress-bar progress-bar-success" style="width:0;"></div>
                   @endif
@@ -672,10 +671,10 @@ canvas {
                   <span class="uppercase">Despesas</span>
                   <span class="pull-right">
                     @if($mant->ADPrevisto > $matu->DPrevisto)
-                    {{ $mant->ADPrevisto == 0 ? '100%' : number_format( (($matu->DPrevisto*100)/$mant->ADPrevisto) - 100, 2) }}% (R$ {{ number_format($matu->DPrevisto-$mant->ADPrevisto,2,',','.')  }})
+                    {{ $mant->ADPrevisto == 0 ? '100%' : (($matu->DPrevisto*100)/$mant->ADPrevisto) - 100 }}% (R$ {{ number_format($matu->DPrevisto-$mant->ADPrevisto,2,',','.')  }})
                     <i class="mdi mdi-arrow-down-bold red"></i>
                     @elseif($mant->ADPrevisto < $matu->DPrevisto)
-                    +{{ $mant->ADPrevisto == 0 ? '100%' : number_format((($matu->DPrevisto*100)/$mant->ADPrevisto) - 100, 2) }}% (R$ {{ number_format($matu->DPrevisto-$mant->ADPrevisto,2,',','.')  }})
+                    +{{ $mant->ADPrevisto == 0 ? '100%' : (($matu->DPrevisto*100)/$mant->ADPrevisto) - 100 }}% (R$ {{ number_format($matu->DPrevisto-$mant->ADPrevisto,2,',','.')  }})
                     <i class="mdi mdi-arrow-up-bold green"></i>
                     @elseif($mant->ADPrevisto - $matu->DPrevisto == '0')
                     Sem alteração <i class="mdi mdi-arrow-left"></i>
